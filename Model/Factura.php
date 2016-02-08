@@ -8,6 +8,7 @@ class factura extends DetallesDAO{
     public function __construct($){
 
     }
+    
     public function set_fecha(){
         $this->fecha = date('dmY');
     }
