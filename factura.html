@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+ 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <meta charset="UTF-8">
+ <style type="text/css">
+  .sombreado{
+  	background-color: rgba(0, 0, 0, 0.3);
+  }
+  .groove,.sombreado {
+  	border:double 1px gray;
+	-moz-border-radius-topleft: 21px;
+	-moz-border-radius-topright:20px;
+	-moz-border-radius-bottomleft:19px;
+	-moz-border-radius-bottomright:17px;
+	-webkit-border-top-left-radius:21px;
+	-webkit-border-top-right-radius:20px;
+	-webkit-border-bottom-left-radius:19px;
+	-webkit-border-bottom-right-radius:17px;
+	border-top-left-radius:21px;
+	border-top-right-radius:20px;
+	border-bottom-left-radius:19px;
+	border-bottom-right-radius:17px;
+
+  }
+  .table{
+  	border-style: solid;
+  }
+  .celdas{
+ 	width:100%;
+  }
+  p.inf_tri{
+  	font-size:10px;
+  }
+  .centrado{
+  	text-align:center;
+   }
+  .inf_clien{
+  	font-size: 13px;
+  }
+
+ </style>
+</head>
+<body>
+ <div class="container groove"><!--contenedor principal-->
+  <div class="container-fluid groove"><!--cabecera con informacion-->
+    <div class="col-md-5 col-xs-5 col-sm-5">
+   	 <a href="#" class="thumbnail">
+      <img src="stratecsa_logo.png" alt="..." style="height:100px;">
+     </a> 
+    </div>
+    <div class="col-md-7">
+   	 <div class="container-fluid sombreado">
+   	 	<b>STRATEGIT TECHNOLOGICAL DE COLOMBIA LTDA - STRATECSTA</b>
+   	 </div>
+   	 <div class="container-fluid">
+   	   <p style="margin-bottom:0px; font-size:12px;margin-top:5px;"><b>NIT: 900.019.355-9, REGIMEN COMUN</b></p>
+   	   <p style="margin-bottom:0px;font-size:12px;"><b>Avenida 4N · 26N - 18 B/San Vicente</b></p>
+   	   <p style="margin-bottom:0px;font-size:12px;"><b>PBX: (57 2) 395 9595 - FAX: (57-2)3952222</b></p>
+   	   <p style="margin-bottom:0px;font-size:12px;"><b>info@stratecsa.com</b></p>
+   	   <p style="margin-bottom:0px;font-size:12px;"><b>CALI - Valle del Cauca - Colombia</b></p>
+   	 </div>
+    </div>
+  </div><!--  Cabecera con informacion-->
+  <div class="container-fluid" style="margin-top:10px" >
+    <div class="row groove">
+      <div class="col-md-9 col-sm-9 col-xs-9">
+      
+        	<table>
+          		<tr>
+            		<td style="width:10%">Fecha de Venta</td>
+            		<td style="width:20%"><input type="text" class="form-control input-sm" placeholder="Fecha de Venta"></td>
+            		<td style="width:10%"><strong class="inf_clien">Fecha de vencimiento</strong></td>
+            		<td style="width:20%"><input type="text" class="form-control input-sm" placeholder="Fecha de vencimiento"></td>
+          		</tr>
+          		<tr>
+            		<td><strong class="inf_clien">Cliente</strong></td>
+            		<td colspan="4"><input type="text" class="form-control input-sm"placeholder="Cliente"></td>
+          		</tr>
+         		<tr>
+            		<td style="width:10%"><strong class="inf_clien">Direccion</strong></td>
+     				<td style="width:20%" ><input type="text" class="form-control input-sm" placeholder="Ciudad"></td>
+     				<td style="width:10%"><strong class="inf_clien">Ciudad</strong></td>
+     				<td style="width:20%" ><input type="text" class="form-control input-sm" placeholder="Ciudad"></td>
+          		</tr>
+          		<tr>
+            		<td style="width:10%">
+      		   			<strong class="inf_clien">Telefono</strong>
+      				</td>
+      				<td style="width:20%">
+      					<input type="text" class="form-control input-sm" placeholder="Telefono">
+      				</td>
+      				<td style="width:10%">
+      					<strong class="inf_clien">Nit</strong>
+      				</td>
+      				<td style="width:20%"><input type="text" class="form-control input-sm" placeholder="Telefono"></td>
+      				<td style="width:10%">
+      					OC
+      				</td>
+      				<td style="width:20%">
+      					<input type="text" class="form-control input-sm" placeholder="O.C">
+      				</td>
+          		</tr>
+        	</table>
+    		
+  	  	
+  	  </div>
+  	  <div class="col-md-3 col-sm-3 col-xs-3">
+  	    <div class="col-md-12 col-sm-12 col-xs-12" ><h4 style="text-align:center;margin-bottom:2px">FACTURA</h4></div>
+  	    <div class="col-md-12  col-sm-12 col-xs-12"><h4 style="text-align:center;margin-bottom:2px">DE VENTA</h4></div>
+  	    <div class="col-md-12  col-sm-12 col-xs-12"><h4 style="text-align:center;margin-bottom:2px">Nº 2009</h4></div>
+  	  </div>
+    </div>
+    <div class="container-fluid" style="margin-top:20px;">
+    	<table class="table table-striped " border="1">
+   	 	    <tr style="padding:5px 5px 5px 5px">
+   	   		  <td  style="width:10%" class=" centrado  info"> <b>Cantidad</b></td>
+   	   		  <td  style="width:50%"  class=" centrado  info"> <b>Descripcion</b></td>
+   	   		  <td  style="width:20%"  class=" centrado  info"><b> Valor Unitario</b></td>
+   	   		  <td  style="width:20%"  class=" centrado  info"><b> Valor Total</b></td>
+   	  		</tr>
+   	 	  <tbody>
+   	   	    <tr>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	<tr>
+   	    	  <td> </td>
+   	    	  <td>  </td>
+   	    	  <td> </td>
+   	    	  <td> </td>
+   	   	  	</tr>
+   	   	  	
+   	   	  	<tr >
+   	  		  <td colspan="2" style="height:30px;border: solid;"></td>
+   	  		  <td style="height:30px;border: solid;">
+   	  		  	<p style="margin-bottom:0px;font-size:12px;text-align:right;"><strong>SubTotal</strong></p>
+   	  		  	<p style="margin-bottom:0px;font-size:12px;text-align:right;"><strong>IVA 16%</strong></p>
+   	  		  	<p style="margin-bottom:0px;font-size:12px;text-align:right;"><strong>Total a Pagar</strong></p></td>
+   	  		  <td style="height:30px;border: solid;"></td>
+   	   	  	</tr>
+   	 	   </tbody>	
+    	</table>
+    </div>
+  	<div class="container-fluid groove" style="margin-top:10">
+   		<div class="col-md-1 col-sm-1 col-xs-1">Observaciones</div>
+   		<div class="col-md-11 col-sm-11 col-xs-11"><textarea class="form-control"></textarea></div>
+  	</div>
+  	<div class="container-fluid groove" style="margin-bottom:0px;">
+  	 <div style="padding: 5px 5px 5px 5px;">
+  		<p class="inf_tri"><strong>INFORMACION TRIBUTARIA:</strong> No osmos grandes contribuyentes. No somos auto retenedores. Somos responsables del I.V.A Regimen Comun.</p>
+  		<p class="inf_tri">Esta es una factura cambiara de compra venta a la letra de cambio, segun el articuo 772 y siguentes del codigo de comiercio. Esta factura
+  	 	cambiara de comrpa venta causara intereses de ley por mora a partir de su fecha de vencimient, mensual o proporsional a partir de la fecha acordada
+  	 	para el pago.</p>
+  	 	<p class="inf_tri">Factura impresa por computado, habilitacion numerica segun <strong>Resolucion DIAN Nº 50000349630 de 2013/10/10 rango 1001 a 10000</strong>
+  	 	El (los) comprador(es), acepta haber cambiado real y materialmente el servicio descrito y acepta las condiciones y el pago de esta factura cambiara de compra venta.</p>
+     </div>
+    </div>
+ </div><!-- cierra contenedor principal-->
+</body>
+</html>
