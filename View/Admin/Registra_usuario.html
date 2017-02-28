@@ -1,0 +1,333 @@
+<style>
+  .div_form{
+    margin-top:10px;
+  }
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <div class="panel panel-default">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Registro Cliente</a></li>
+        <li><a data-toggle="tab" href="#empres">Registro Empresa</a></li>
+        <li><a data-toggle="tab" href="#document">Documentos</a></li>
+        <li><a data-toggle="tab" href="#buscar">Buscar</a></li>
+      </ul>
+      <div class="panel-body tab-content"> 
+        <div class="col-xs-12 col-sm-12 col-md-12 well well-sm tab-pane fade in active" id="home">
+          <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a> Registrar Cliente</legend>
+          <form name="form_register_client" id="form_register_client">
+             <div class="col-md-12 div_form">
+              <div class="row panel">
+                <div class="col-md-3">
+                 <label> Tipo de Cliente</label>                
+                </div>
+                <div class="col-md-2"><label>Juridico</label>
+                  <label class="radio-inline">
+                    <input type="radio" name="tipo" id="chek_tip_cli" class="form-control"  value="1" style="margin-top:-80%;"/>
+                  </label>
+                </div>
+                <div class="col-md-2"><label>Natural</label>
+                  <label class="radio-inline"> 
+                    <input type="radio" name="tipo" id="chek_tip_cli" class="form-control"  value="0" style="margin-top:-80%;"/>
+                  </label>
+                </div>
+              </div>
+             </div> 
+            <div class="col-xs-6 col-md-6 div_form">
+               <label>Cedula del titular</label>
+                <input class="form-control" name="id" id="inp_ced" placeholder="Cedula" type="number" required autofocus />
+            </div>
+            <div class="col-md-12 div_form" id="panel_nomb_ced">
+              <div class="row">
+                <div class="col-xs-6 col-md-6">
+                    <label>Nombres</label>
+                    <input class="form-control" id="inp_nomb" name="nomb" placeholder="Nombre" type="text" required autofocus />
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <label>Apellidos</label>
+                    <input class="form-control" id="inp_apell" name="apelli" placeholder="Apellido" type="text" required />
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-12 div_form">
+                <label> Direccion</label>
+                <input class="form-control" id="inp_dir" name="direc" placeholder="Direccion" type="text" />
+            </div>
+            <div class="col-md-4 div_form">  
+                <label> Pais</label>
+                <select class="form-control" id="inp_pais" name="pais" placeholder="Pais">
+                    <option> </option>
+                    <option value="1"> Colombia </option>
+                    <option value="2"> Ecuador</option>
+                </select>
+            </div>
+            <div class="col-md-4 div_form">
+                <label> Departamento</label>
+                <select class="form-control" id="inp_depart" placeholder="Departamento">
+                    <option> </option>
+                    <option value="1"> Valle del Cauca </option>
+                    <option> </option>
+                </select>
+            </div>
+
+            <div class="col-md-4 div_form">
+                <label> Ciudad</label>
+                <select class="form-control" id="inp_ciud" placeholder="Ciudad" name="ciud" required>
+                    <option> </option>
+                    <option value="1"> Cali </option>
+                    <option value="2"> Bogota</option>
+                </select>
+            </div>
+            <div class="col-md-4 div_form">
+                <label> Telefono</label>
+                <input class="form-control" id="inp_tele" name="tele" placeholder="Telefono" type="text" />
+            </div>
+            <div class="col-md-2 div_form">
+             <label> Extension</label>
+             <input class="form-control" id="inp_tele_ext" name="ext" placeholder="Extension" type="text" />
+            </div>
+            <div class="col-md-4 div_form">
+                <label> Fax</label>
+                <input class="form-control" id="inp_fax" name="fax" placeholder="Fax" type="text" />
+            </div>
+            <div class="col-md-5 div_form">
+                <label> Email</label>
+                <input class="form-control" id="inp_email" name="email" placeholder="Email" type="text" />
+            </div>
+            <div class="col-md-3 div_form" id="field_sex">
+             <div class="panel panel-default" >
+              <div class="panel-heading">
+                <label> Sexo</label>
+              </div>
+              <div class="panel-body">Hombre
+                <label class="radio-inline">
+                    <input type="radio" name="sex" class="form-control " id="sex" value="1" style="margin-top:-80%;"/>
+                </label>Mujer
+                <label class="radio-inline"> 
+                    <input type="radio" name="sex" class="form-control " id="sex" value="0" style="margin-top:-80%;"/>
+                </label>
+              </div>
+             </div> 
+            </div>
+            <input type="hidden" name="agregar_usuario" value="si">   
+            <div class="col-md-12 " style="margin-top:20px;">
+              <button class="btn btn-lg btn-primary" id="btn_add_client">
+                Agregar
+              </button>         
+            </div>
+         </form>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 well well-sm tab-pane fade" id="empres">
+         <form name="form_register_empresa" id="form_register_empresa"> 
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <label> Registrar Empresa</label>
+            </div>
+            <div class="panel-body">
+              <div class="col-xs-6 col-md-6">
+                <label>NIt</label>
+                <input class="form-control" name="nit" id="inp_nit" placeholder="Nit o Cedula" type="text" required autofocus />
+              </div>
+              <div class="col-md-12 div_form" id="panel_razon_soc">
+                <label> Nombre de Razon Social</label>
+                <input class="form-control" id="inp_razon" name="razon" placeholder="Nombre o razon social" type="text"
+                        required autofocus />
+              </div>
+              <div class="col-md-12 div_form">
+                <label> Direccion</label>
+                <input class="form-control" id="inp_dir_emp" name="direc" placeholder="Direccion" type="text" />
+              </div>
+              <div class="col-md-4 div_form">  
+                <label> Pais</label>
+                <select class="form-control" id="inp_pais_emp" placeholder="Pais">
+                    <option> </option>
+                    <option value="1"> Colombia </option>
+                    <option value="2"> Ecuador</option>
+                </select>
+              </div>
+              <div class="col-md-4 div_form">
+                <label> Departamento</label>
+                <select class="form-control" id="inp_depart_emp" placeholder="Departamento">
+                    <option> </option>
+                    <option value="1"> Valle del Cauca </option>
+                    <option> </option>
+                </select>
+              </div>
+
+              <div class="col-md-4 div_form">
+                <label> Ciudad</label>
+                <select class="form-control" id="inp_ciud_emp" name="ciud" placeholder="Ciudad">
+                    <option> </option>
+                    <option value="50"> Cali </option>
+                    <option value="51"> Buenaventura</option>
+                </select>
+              </div>
+              <div class="col-md-4 div_form">
+                <label> Telefono</label>
+                <input class="form-control" id="inp_tele_emp" name="tel" placeholder="Telefono" type="text" />
+              </div>
+              <div class="col-md-12 " style="margin-top:20px;">
+                <input type="hidden" name="id_nit" value="">
+                <button class="btn btn-lg btn-primary" id="btn_add_empre">
+                  Agregar
+                </button>
+              </div>
+            </div><!--panel - body-->
+          </div>
+         </form>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 well well-sm tab-pane fade" id="document">
+         <form id="form_file_client" name="form_file_client""> 
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <label> Registrar Documentos</label>
+            </div>
+            <div class="panel-body">
+              
+              <div class="col-md-12"><!-- proveedores = certificacion bancaria-->
+               <div class="col-md-3">Anexar Documento</div>
+               <div class="col-md-9">
+                <label> Camara de comercio</label>
+                <input id="inp_file1" name="file" multiple=true type="file" data-preview-file-type="any" class="file">
+                <label>Fotocopia de la cedula</label>
+                <input id="inp_file2" name="file" multiple=true type="file" data-preview-file-type="any" class="file">
+                <label>Rut</label>
+                <input id="inp_fil3" name="file" multiple=true type="file" data-preview-file-type="any" class="file">
+               </div>
+              </div>
+              <div class="col-md-11">
+                 <div class="col-md-offset-9">
+                   <input type="hidden" name="id_nit">
+                   <button class="btn btn-danger btn-block" id="btn_add_file" style="margin-top:40px;"><span class="glyphicon glyphicon-floppy-saved"></span>  Agregar Fotos</button>
+                 </div>
+              </div>
+            </div><!--panel - body-->
+          </div>
+         </form>
+        </div>
+        <!-- buscar-->
+        <div class="col-xs-12 col-sm-12 col-md-12 well well-sm tab-pane fade" id="buscar">
+         <div class="row">
+          <div class="col-md-3"><label> Buscar usuario</label></div>
+          <div class="col-md-6"><input type="text" class="form-control input-md" id="inp_id_client" placeholder="Buscar por Cedula, Nit o Nombre"> </div>
+          <div class="col-md-2"><a href="#" class="btn btn-success" id="btn_searh"><span class="glyphicon glyphicon-search"></span></a></div>
+         </div>
+         <div class="col-md-12" style="margin-top: 50px;">
+
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#empresas" data-toggle="tab"><span class="glyphicon glyphicon-inbox">
+               </span> Empresas</a></li>
+              <li><a href="#documentos" data-toggle="tab"><span class="glyphicon glyphicon-folder-open"> </span>
+                 Documentos</a></li>
+              <li><a href="#contratos" data-toggle="tab"><span class="glyphicon glyphicon-list-alt"> </span>
+                  Contratos</a></li>
+             <li><a href="#cuotas" data-toggle="tab"><span class="glyphicon glyphicon-file">
+               </span> Cuotas</a></li>
+             <li><a href="#factura" data-toggle="tab"><span class="glyphicon glyphicon-file">
+               </span> Facturas</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="empresas">
+                <div class="container-fluid">
+                 <table class="table table-responsive" >
+                  <thead>
+                   <th>Id Empresa</th>
+                   <th>Nombre</th>
+                   <th>Telefono</th>
+                   <th>Direccion</th>
+                   <th>Tipo</th>
+                  </thead>
+                  <tbody id="list_empre">
+                  </tbody>
+                 </table>  
+                </div>
+              </div>
+              <div class="tab-pane fade in" id="documentos">
+                <div class="col-md-12">
+                  <table class="table table-responsive">
+                   <thead>
+                     <th> Nit empresa</th>
+                     <th> Documento camara y comercio</th>
+                     <th> Documento fotocopia de cedula</th>
+                     <th> Documento rut</th>
+                   </thead>
+                   <tbody id="list_document_empre">
+                   </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade in" id="contratos">
+               <div class="col-md-12">
+                <table class="table table-responsive" >
+                 <thead>
+                  <th>Id contrato</th>
+                  <th>No servicio</th>
+                  <th>Pagos abonados</th>
+                  <th>Costo</th>
+                  <th>Fecha final</th>
+                  <th>Estado</th>
+                  <th>Accion</th>
+                 </thead>
+                 <tbody id="list_contrat">
+                  
+                 </tbody>
+                </table>  
+               </div>
+              </div> 
+              <div class="tab-pane fade in" id="cuotas">
+                <div class="col-md-12">
+                  <table class="table table-responsive" >
+                    <thead>
+                     <th>Id factura</th>
+                     <th>Fecha inicio</th>
+                     <th>Fecha final</th>
+                     <th>Total</th>
+                     <th>Cancelado</th>
+                    </thead>
+                    <tbody id="list_fact">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade in" id="factura">
+                <div class="col-md-12">
+                  <table class="table table-responsive" >
+                    <thead>
+                     <th>Id factura</th>
+                     <th>Fecha inicio</th>
+                     <th>Fecha final</th>
+                     <th>Total</th>
+                     <th>Cancelado</th>
+                     <th>accion</th>
+                    </thead>
+                    <tbody id="list_fact_">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+      </div><!--tab-content-->
+    </div><!--panel-default-->
+  </div><!--row-->
+</div><!--container-->
+<script type="text/javascript">
+  $(function(){
+    
+  
+  $(".file").fileinput({
+    language: 'en',
+    showCaption: true,
+    showPreview: true,
+    showRemove: true,
+    showUpload: false, // <------ just set this from true to false
+    showCancel: true,
+    showUploadedThumbs: true
+
+    // many more below
+   
+  });
+ });
+</script>

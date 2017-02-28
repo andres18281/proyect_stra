@@ -1,0 +1,375 @@
+<div class="container-fluid">
+  <div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Empleados</a></li>
+      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Modulos</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">
+        <div class="panel panel-default modal-content">
+          <div class="panel-heading">
+            <label>listado de empleados</label>
+          </div>
+          <div class="panel-body">
+            <div class="container-fluid ">
+              <div class="col-md-12">
+                <div class="col-md-8 col-md-offset-4">
+                  <div class="col-md-4">
+                   <label> Filtrar por departamento</label>
+                  </div>
+                  <div class="col-md-4">  
+                    <select class="form-control input-xs" id="slt_all_depart">
+                      <option></option>
+                    </select>
+                  </div>
+                  <div class="col-md-4"> 
+                    <a href="#" class="btn btn-success" id="btn_buscar">Buscar</a>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table table-hover">
+                  <tbody id="tbody_list_employed">                              
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>      
+      </div>
+      <div role="tabpanel" class="tab-pane" id="profile">
+    
+
+        <div class="container-fluid">
+          <div class="panel panel-default">
+              <div class="panel-heading"><label>Configuracion de modulos a usar</label></div>
+              <div class="panel-body">
+                <div class="container-fluid">
+
+                  <div>
+                <!-- Nav tabs -->
+                    <ul class="nav nav-tabs nav-pills tabs-iconized" role="tablist">
+                      <li role="presentation" class="active"><a href="#ticket" aria-controls="ticket" role="tab" data-toggle="tab">Tickets</a></li>
+                      <li role="presentation"><a href="#contratos" aria-controls="contratos" role="tab" data-toggle="tab">Contratos</a></li>
+                      <li role="presentation"><a href="#empleados" aria-controls="empleados" role="tab" data-toggle="tab">Empleados</a></li>
+                      <li role="presentation"><a href="#clientes" aria-controls="clientes" role="tab" data-toggle="tab">Cientes</a></li>
+                      <li role="presentation"><a href="#proveedores" aria-controls="proveedores" role="tab" data-toggle="tab">Proveedores</a></li>
+                      <li role="presentation"><a href="#soporte" aria-controls="soporte" role="tab" data-toggle="tab">Soporte tecnico</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                   
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active fade" id="ticket">
+                       <form id="form_config_ticket">
+                        <div class="container-fluid panel">
+                          <div class="col-xs-4">
+                            <label>Redactar tickets</label>
+                          </div>
+                          <div class="col-xs-4">
+                            <div class="btn-group" data-toggle="buttons">
+                              <label class="btn btn-primary active">
+                                <input type="radio" name="options_ticke_redac" value="1" id="option1" autocomplete="off"> SI
+                              </label>
+                              <label class="btn btn-primary">
+                                <input type="radio" name="options_ticke_redac" value="0" id="option2" autocomplete="off"> NO
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="container-fluid panel">
+                          <div class="col-xs-4">
+                            <label>Informacion General</label>
+                          </div>
+                          <div class="col-xs-4">
+                            <div class="btn-group" data-toggle="buttons">
+                              <label class="btn btn-primary active">
+                                <input type="radio" name="options_ticke_info" value="1" id="option1" autocomplete="off"> SI
+                              </label>
+                              <label class="btn btn-primary">
+                                <input type="radio" name="options_ticke_info" value="0" id="option2" autocomplete="off"> NO
+                              </label>
+                            </div>
+                          </div>
+                        </div>        
+                       </form>
+                      </div>
+   
+                      <div role="tabpanel" class="tab-pane fade" id="contratos">
+                       <form id="form_config_contrat">
+                        <div class="container-fluid">
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Crear contratos</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_contrat_crear" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_contrat_crear" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                             </div>
+                            </div>
+                          </div>
+       
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Editar contratos</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_ctr_edit" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_ctr_edit" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Ver informacion general de contratos</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_ctr_ver" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_ctr_ver" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                       </form>
+
+                      </div><!--tab-pane-->
+                      <div role="tabpanel" class="tab-pane fade" id="empleados">
+                       <form id="form_config_empleado">
+                        <div class="container-fluid">
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Crear empleados</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_employ_crear" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_employ_crear" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Eliminar empleados</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_employ_elimi" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_employ_elimi" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid">
+                            <div class="col-xs-4">
+                              <label>Mostrar empleados</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                 <label class="btn btn-primary active">
+                                   <input type="radio" name="options_employ_show" value="1" id="option1" autocomplete="off"> SI
+                                 </label>
+                                 <label class="btn btn-primary">
+                                    <input type="radio" name="options_employ_show" value="0" id="option2" autocomplete="off"> NO
+                                 </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>  
+                       </form>
+                      </div>
+
+                      <div role="tabpanel" class="tab-pane fade" id="clientes">
+                       <form id="form_config_client">
+                        <div class="container-fluid panel">
+                          <div class="col-xs-4">
+                           <label>Crear cliente</label>
+                          </div>
+                          <div class="col-xs-4">
+                            <div class="btn-group" data-toggle="buttons">
+                              <label class="btn btn-primary active">
+                                <input type="radio" name="options_clien_creat" value="1" id="option1" autocomplete="off"> SI
+                              </label>
+                              <label class="btn btn-primary">
+                                <input type="radio" name="options_clien_creat" value="0" id="option2" autocomplete="off"> NO
+                              </label>
+                            </div>
+                          </div>
+                        </div> 
+                        <div class="container-fluid panel">
+                          <div class="col-xs-4">
+                            <label>Configurar cliente</label>
+                          </div>
+                          <div class="col-xs-4">
+                            <div class="btn-group" data-toggle="buttons">
+                              <label class="btn btn-primary active">
+                                <input type="radio" name="options_clien_confi" value="1" id="option1" autocomplete="off"> SI
+                              </label>
+                              <label class="btn btn-primary">
+                                <input type="radio" name="options_clien_confi" value="0" id="option2" autocomplete="off"> NO
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="container-fluid panel">
+                          <div class="col-xs-4">
+                              <label>Mostrar clientes</label>
+                          </div>
+                          <div class="col-xs-4">
+                            <div class="btn-group" data-toggle="buttons">
+                              <label class="btn btn-primary active">
+                                 <input type="radio" name="options_clien_mostrar" value="1" id="option1" autocomplete="off"> SI
+                              </label>
+                              <label class="btn btn-primary">
+                                <input type="radio" name="options_clien_mostrar" value="0" id="option2" autocomplete="off"> NO
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                       </form>
+                      </div>
+                      <div role="tabpanel" class="tab-pane fade" id="proveedores">
+                       <form id="form_config_provee">
+                        <div class="container-fluid">
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Crear proveedores</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_provee_crear" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_provee_crear" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Configuracion proveedores</label>
+                            </div>
+                            <div class="col-xs-4">
+                             <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_provee_config" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_provee_config" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Ver proveedores</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_provee_ver" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_provee_ver" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                       </form>
+                      </div><!--proveedores-->
+                      <div role="tabpanel" class="tab-pane fade" id="soporte">
+                       <form id="form_config_soport">
+                        <div class="container-fluid">
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Monitorizar solicitudes de soporte</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_soport_ver" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_soport_ver" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Ver ordenes para instalacion</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_orden_ver" value="1" id="option1" autocomplete="off" checked> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_orden_ver" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container-fluid panel">
+                            <div class="col-xs-4">
+                              <label>Responder solicitudes de viabilidad</label>
+                            </div>
+                            <div class="col-xs-4">
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                  <input type="radio" name="options_respon_viabili" value="1" id="option1" autocomplete="off"> SI
+                                </label>
+                                <label class="btn btn-primary">
+                                  <input type="radio" name="options_respon_viabili" value="0" id="option2" autocomplete="off"> NO
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div><!--container-fluid-->
+                       </form>
+                      </div><!--soporte-->
+                      <input type="hidden" name="count_id" id="count_id">
+                      <div class="container-fluid">
+                        <button class="btn btn-primary pull-right" id="enviar_">Guardar</button>
+                      </div> 
+                    </div><!--tabcontent-->
+                  </div>   
+                </div><!--container-fluid-->
+              </div><!--panel-body-->
+          </div><!--panel-default-->
+        </div><!--container-fluid-->
+      </div><!--tabpanel profile-->
+    </div><!--tabcontent principal-->
+  </div>
+</div><!--container-fluid-->

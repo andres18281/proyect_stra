@@ -1,32 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
- 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ <title></title>
  <meta charset="UTF-8">
  <style type="text/css">
-  .sombreado{
-  	background-color: rgba(0, 0, 0, 0.3);
-  }
-  .groove,.sombreado {
-  	border:double 1px gray;
-	-moz-border-radius-topleft: 21px;
-	-moz-border-radius-topright:20px;
-	-moz-border-radius-bottomleft:19px;
-	-moz-border-radius-bottomright:17px;
-	-webkit-border-top-left-radius:21px;
-	-webkit-border-top-right-radius:20px;
-	-webkit-border-bottom-left-radius:19px;
-	-webkit-border-bottom-right-radius:17px;
-	border-top-left-radius:21px;
-	border-top-right-radius:20px;
-	border-bottom-left-radius:19px;
-	border-bottom-right-radius:17px;
-
-  }
   .table{
   	border-style: solid;
   }
@@ -42,7 +19,6 @@
   .inf_clien{
   	font-size: 13px;
   }
-
  </style>
 </head>
 <body>
@@ -54,7 +30,7 @@
      </a> 
     </div>
     <div class="col-md-7">
-   	 <div class="container-fluid sombreado">
+   	 <div class="container-fluid">
    	 	<b>STRATEGIT TECHNOLOGICAL DE COLOMBIA LTDA - STRATECSTA</b>
    	 </div>
    	 <div class="container-fluid">
@@ -66,43 +42,43 @@
    	 </div>
     </div>
   </div><!--  Cabecera con informacion-->
-  <div class="container-fluid" style="margin-top:10px" >
+  <div class="container-fluid" style="margin-top:10px">
     <div class="row groove">
       <div class="col-md-9 col-sm-9 col-xs-9">
       
         	<table>
           		<tr>
             		<td style="width:10%">Fecha de Venta</td>
-            		<td style="width:20%"><input type="text" class="form-control input-sm" placeholder="Fecha de Venta"></td>
+            		<td style="width:20%">{{fecha_venta}}</td>
             		<td style="width:10%"><strong class="inf_clien">Fecha de vencimiento</strong></td>
-            		<td style="width:20%"><input type="text" class="form-control input-sm" placeholder="Fecha de vencimiento"></td>
+            		<td style="width:20%">{{fecha_venci}}</td>
           		</tr>
           		<tr>
             		<td><strong class="inf_clien">Cliente</strong></td>
-            		<td colspan="4"><input type="text" class="form-control input-sm"placeholder="Cliente"></td>
+            		<td colspan="4">{{nombre}}</td>
           		</tr>
          		<tr>
             		<td style="width:10%"><strong class="inf_clien">Direccion</strong></td>
-     				<td style="width:20%" ><input type="text" class="form-control input-sm" placeholder="Ciudad"></td>
+     				<td style="width:20%" >{{direccion}}</td>
      				<td style="width:10%"><strong class="inf_clien">Ciudad</strong></td>
-     				<td style="width:20%" ><input type="text" class="form-control input-sm" placeholder="Ciudad"></td>
+     				<td style="width:20%">{{ciudad}}</td>
           		</tr>
           		<tr>
             		<td style="width:10%">
       		   			<strong class="inf_clien">Telefono</strong>
       				</td>
       				<td style="width:20%">
-      					<input type="text" class="form-control input-sm" placeholder="Telefono">
+      					{{telefono}}
       				</td>
       				<td style="width:10%">
       					<strong class="inf_clien">Nit</strong>
       				</td>
-      				<td style="width:20%"><input type="text" class="form-control input-sm" placeholder="Telefono"></td>
+      				<td style="width:20%">{{nit}}</td>
       				<td style="width:10%">
       					OC
       				</td>
       				<td style="width:20%">
-      					<input type="text" class="form-control input-sm" placeholder="O.C">
+      					{{oc}}
       				</td>
           		</tr>
         	</table>
@@ -111,17 +87,17 @@
   	  </div>
   	  <div class="col-md-3 col-sm-3 col-xs-3">
   	    <div class="col-md-12 col-sm-12 col-xs-12" ><h4 style="text-align:center;margin-bottom:2px">FACTURA</h4></div>
-  	    <div class="col-md-12  col-sm-12 col-xs-12"><h4 style="text-align:center;margin-bottom:2px">DE VENTA</h4></div>
-  	    <div class="col-md-12  col-sm-12 col-xs-12"><h4 style="text-align:center;margin-bottom:2px">Nº 2009</h4></div>
+  	    <div class="col-md-12 col-sm-12 col-xs-12"><h4 style="text-align:center;margin-bottom:2px">DE VENTA</h4></div>
+  	    <div class="col-md-12 col-sm-12 col-xs-12"><h4 style="text-align:center;margin-bottom:2px">Nº 2009</h4></div>
   	  </div>
     </div>
     <div class="container-fluid" style="margin-top:20px;">
-    	<table class="table table-striped " border="1">
+    	<table class="table table-striped">
    	 	    <tr style="padding:5px 5px 5px 5px">
-   	   		  <td  style="width:10%" class=" centrado  info"> <b>Cantidad</b></td>
-   	   		  <td  style="width:50%"  class=" centrado  info"> <b>Descripcion</b></td>
-   	   		  <td  style="width:20%"  class=" centrado  info"><b> Valor Unitario</b></td>
-   	   		  <td  style="width:20%"  class=" centrado  info"><b> Valor Total</b></td>
+   	   		  <td  style="width:10%" class="centrado info"> <b>Cantidad</b></td>
+   	   		  <td  style="width:50%"  class="centrado info"> <b>Descripcion</b></td>
+   	   		  <td  style="width:20%"  class="centrado info"><b> Valor Unitario</b></td>
+   	   		  <td  style="width:20%"  class="centrado info"><b> Valor Total</b></td>
    	  		</tr>
    	 	  <tbody>
    	   	    <tr>
@@ -196,7 +172,7 @@
    	 	   </tbody>	
     	</table>
     </div>
-  	<div class="container-fluid groove" style="margin-top:10">
+  	<div class="container-fluid groove" style="margin-top:10px">
    		<div class="col-md-1 col-sm-1 col-xs-1">Observaciones</div>
    		<div class="col-md-11 col-sm-11 col-xs-11"><textarea class="form-control"></textarea></div>
   	</div>

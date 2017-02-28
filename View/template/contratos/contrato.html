@@ -1,0 +1,119 @@
+
+      <div class="container-fluid">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="pull-left"><label>Estado : </label><label style="color:red">Sin Activar</label></div>
+        	  <h3 style="text-align:right;"><span style="color:black;">CONTRATO No </span><span style="color:red;">{{id}}</span></h3>
+          </div>
+        </div>
+      </div>
+    	<div class="container-fluid">
+   	 	  <div class="col-xs-12">
+   	  		<div class="form-group">
+   	  			<label style="font-size:18px;">SERVICIO ADQUIRIDO DE :</label>
+   	  			<span style="color:red;font-size:18px;">{{servi_princi}} </span>
+   	  		</div>
+   	 	  </div>
+    	</div>
+    	<div class="container-fluid">
+     	  <div class="panel panel-primary">
+      		<div class="panel-heading" style="text-align:center;height:30px;">
+      	 		<label>Informacion</label>
+      		</div>
+     		  <div class="panel-body"> 
+      		  <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6" style="margin-top:5px;">
+         		  <label class="bg-primary">Informacion de Contrato</label>
+        		  <div class="form-inline">
+      	 			<div class="form-group">
+      	  				<label>Fecha Inicio</label>
+      	  				<a> {{fecha_inicio}}</a>
+      	 			</div>
+        		  </div>
+        		  <div class="form-inline">
+      	 			<div class="form-group">
+      	  				<label>Fecha Fin</label> 
+      	  				<a> {{fecha_fin}}</a> 
+      	 			</div>
+        		  </div>
+        		  <div class="form-inline">
+      	 			<div class="form-group">
+      	  			  <label>Cuotas</label>
+      	  			  <a>{{cuota}}</a>
+      	 			</div>
+        		  </div>
+        		  <div class="form-inline">
+      	 			<div class="form-group">
+      	  			 <label>Forma de pago</label>
+      	  			 <a> {{time_service}}</a>
+      	 			</div>
+        		  </div>
+       			<div style="margin-top:10px;">
+        		   <label class="bg-primary">Informacion de Vendedor</label>
+       			   <div class="form-inline">
+      	 			  <div class="form-group">
+      	  			  <label>Cedula</label>
+      	  			  <a> {{id_vende}}</a>
+      	 			  </div>
+        		   </div>
+       			   <div class="form-inline">
+      	 			   <div class="form-group">
+      	  			   <label>Nombre Vendedor</label><br>
+      	  			   <a> {{employed}}</a>
+      	 			   </div>
+        			 </div>
+       			</div> 
+      		</div>
+      		<div class="col-xs-6 col-md-6 col-sm-6 col-lg-6" style="margin-top:5px;">
+        	  <label class="bg-primary">Informacion de Cliente</label>
+       			<div class="form-inline">
+      			  <div class="form-group">
+      	  			<label>Representante</label><br>
+      	  			<a> {{nomb_cli}}</a>
+      			  </div>
+       			</div>
+       			<div class="form-inline"> 
+      			  <div class="form-group"> 
+      				  <label>Nit</label><br>
+      	  		    <a> {{nit}}</a>
+      	  		    <br>
+      	  		  <label>Razon Social</label><br>
+      	  		    <a> {{nomb_empr}}</a>
+      	  		    <br>
+      	  		  <label> Direccion</label>
+      	  		    <a>{{dir}} </a>
+      	  	      <br>
+      	  		  <label> Email</label>
+      	  		    <a>{{mail_cli}} </a>
+      	  		    <br>
+      			  </div>
+       			</div>
+      		</div>
+     		</div>
+     		<div class="container-fluid" style="margin-top:20px;">
+      		  <div class="container-fluid">
+      			  <div class="panel panel-default">
+      	  			<div class="panel-heading" style="text-align:center;background-color: rgba(35, 37, 53, 0.1);height:30px;">
+      	  				<label>Servicios Prestados</label>
+      	  			</div>
+          			<div class="panel-body">
+         		  	  <table class="table table-hover">
+          	 			<thead>
+           	  		 		<th>Id de Servicio</th>
+           	  		 		<th>Nombre Servicio</th>	
+           	  		 		<th>Tiempo de Servicio</th>	
+           	  		 		<th>Costo</th>	
+          	 			</thead>	
+          	 			<tbody> 
+           	   		 	 <tr style="background-color: rgba(94, 188, 238, 0.2);">
+           	   		  	  <td>{{id_servi}}</td>
+           	   		  	  <td>{{serv_nom}}</td>
+           	   		  	  <td>{{time_service}}</td>
+           	   		  	  <td>{{cost}}</td>
+              		 	 </tr>
+             			</tbody>
+         		  	  </table>
+      	  			</div>	
+      		    </div>
+      		  </div>
+     		</div>
+      </div>

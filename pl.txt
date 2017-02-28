@@ -1,0 +1,29 @@
+CREATE EVENT mount_facture 
+ ON SCHEDULE EVERY '1' MONTH 
+ START '2016-06-01 00:00:00'
+ ON COMPLETION PRESERVE 
+ DO 
+  BEGIN 
+   declare codigo int(10);
+   declare costo int(10);
+   declare empresa varchar(60);
+   declare nit varchar(12);
+   declare continue handler for not found set done=1;
+   declare cur cursor for 
+        SELECT Id_contrat,Servi_cost,Empres_nomb,Empres_nit
+        FROM contrato con
+        INNER JOIN servicios_prestado sp ON con.Contra_id_contr = sp.Servi_id 
+        INNER JOIN empresa_stra emp ON emp.Empres_nit = con.Contra_id_client
+        WHERE DATE_FORMAT(Contra_time_ini,'%Y%m') >= DATE_FORMAT(now(),'%Y%m') 
+        AND DATE_FORMAT(Contra_time_fin,'%Y%m') <= DATE_FORMAT(now(),'%Y%m')
+ 	AND Contra_Form_pago = 2 
+ 	AND Contra_stado = 1; 
+    open cur;
+    start_loop:loop 
+     fetch cur into codigo,costo,empresa,nit;
+     if done == 1 then leave start_loop; end if;
+     INSERT INTO pagos_str VALUES(null,now(),LAST_DAY(now()),codigo,nit,costo,2);
+    end loop start_loop;
+    close cur;
+END
+  

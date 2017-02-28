@@ -1,0 +1,5 @@
+>tiempo de servicio y costo
+Se establece el tiempo de servicio para establecer el tiempo establecido del contrato
+
+> Pagos
+Se establece el modo de pago, el modo a facturar y las cantidad de cuotas 

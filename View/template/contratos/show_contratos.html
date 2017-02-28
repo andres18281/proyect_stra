@@ -1,0 +1,221 @@
+<style type="text/css">
+	.agenda {  }
+
+/* Dates */
+.agenda .agenda-date { width: 170px; }
+.agenda .agenda-date .dayofmonth {
+  width: 40px;
+  font-size: 36px;
+  line-height: 36px;
+  float: left;
+  text-align: right;
+  margin-right: 10px; 
+}
+.agenda .agenda-date .shortdate {
+  font-size: 0.75em; 
+}
+
+
+/* Times */
+.agenda .agenda-time { width: 140px; } 
+
+
+/* Events */
+.agenda .agenda-events {  } 
+.agenda .agenda-events .agenda-event {  } 
+
+@media (max-width: 767px) {
+    
+}
+
+.btn span.glyphicon {    			
+	opacity: 0;		
+    padding: 1px;
+}
+.btn.active span.glyphicon {				
+	opacity: 1;	
+    
+}
+
+</style>
+<div class="container-fluid">
+
+<h2>Solicitudes Nuevas</h2>
+ <hr/>
+  <div class="col-md-5">
+   <div class="panel panel-default">
+    <div class="panel-heading">
+      <label>Solicitudes sin activar</label>
+    </div>
+    <div class="agenda">
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Codigo</th>
+                        <th>Hora</th>
+                        <th>Tipo de Contrato</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_all_contrat">
+                </tbody>
+            </table>
+        </div>
+    </div><!--agenda-->
+   </div>
+  </div>
+  <div class="col-xs-7 col-md-7">
+   <div class="panel panel-default">
+    <div class="panel-heading" style="background-color: rgba(46, 44, 56, 0.1);">
+     Informacion del Contrato
+    </div> 	
+    <div class="panel-body">
+     <form name="form_modify_contrat">
+  	  <div>
+  		<ul class="nav nav-tabs" role="tablist">
+    		<li role="presentation" class="disabled"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list-alt" style="font-weight:bold;font-size:18px;"></span> Contrato </a></li>
+    		<li role="presentation" class="disabled"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-pencil" style="font-weight:bold;font-size:18px;"></span> Modificar</a></li>
+    		<li role="presentation" class="disabled"><a href="#messages" aria-controls="messages" role="tab"><span class="glyphicon glyphicon-wrench" style="font-weight:bold;font-size:18px;"></span> Servicio Tecnico </a></li>
+    		<li role="presentation" class="disabled"><a href="#settings" aria-controls="settings" role="tab"><span class="glyphicon glyphicon-usd" style="font-weight:bold;font-size:18px;"></span> Descuento </a></li>
+    		<li role="presentation" class="disabled"><a href="#finalizar" aria-controls="finalizar" role="tab"> <span class="glyphicon glyphicon-ok" style="font-weight:bold;font-size:18px;"></span> Finalizar </a></li>
+  		</ul>
+  		<div class="tab-content">
+    	  <div role="tabpanel" class="tab-pane fade active" id="home"></div>
+    	  <div role="tabpanel" class="tab-pane fade active" id="profile" style="background-color: rgba(46, 44, 56, 0.1);">
+    	  	<div class="container-fluid">
+    	  	 <fieldset>
+    	  	  <legend style="font-size:15px;color:black;font-weight:bold;text-align:center;">Servicios</legend>
+    	  	  <div class="container-fluid">
+    	  	   <div class="col-md-6 col-xs-6">
+    	  	    <label>Servicio</label>
+    	  	  	<select class="form-control" name="slt_tip_servi" id="tip_servi" style="background-color:white;">   	  	  	  
+    	  	  	  <option></option>	
+    	  	  	</select>
+    	  	   </div>
+    	  	   <div class="col-md-6 col-xs-6">
+    	  	  	<label>Sub Servicio</label>
+    	  	  	<select class="form-control" name="slt_descrip_servi" id="descrip_servi" style="background-color:white;">
+    	  	  	  <option></option>	
+    	  	  	</select>
+    	  	   </div>
+    	  	  </div>
+    	  	  <div class="container-fluid">
+    	  	  	 <div class="col-md-6">
+    	  	  	   <label>Tiempo de Servicio</label>
+    	  	  	   <input type="number" name="inp_time_servi" class="form-control input-xs" id="inp_time_servi">	
+    	  	  	 </div>
+    	  	  </div>
+    	  	 </fieldset>
+    	  	 <fieldset>
+    	  	  <legend style="font-size:15px;color:black;font-weight:bold;text-align:center;">Fecha</legend>
+    	  	  <div class="container-fluid">
+    	  	   <div class="col-md-6 col-xs-6">
+    	  	    <label>Inicio</label>
+    	  	  	<input type="text" class="form-control fecha date" data-provide="datepicker" name="inp_fech_in" id="inp_fech_in" data-date-format="yyyy-mm-dd">
+    	  	   </div> 
+    	  	   <div class="col-md-6 col-xs-6">
+    	  	  	<label>Fin</label>
+    	  	  	<input type="text" class="form-control fecha date" data-provide="datepicker" name="inp_fech_fn" id="inp_fech_fn" data-date-format="yyyy-mm-dd">
+    	  	   </div>
+    	  	  </div>
+    	  	 </fieldset> 
+    	  	 <fieldset>
+    	  	  <legend style="font-size:15px;color:black;font-weight:bold;text-align:center;">Forma de pago</legend>
+    	  	  <div class="container-fluid">
+    	  	   <div class="col-md-6 col-xs-6">
+    	  	    <label>Forma de Pago</label>
+    	  	  	<select class="form-control" name="slt_form_pag" style="background-color:white;" id="slt_form_pag">
+                  <option></option>
+                  <option value="1">Un solo pago</option>
+                  <option value="2">Mensual</option>
+                  <option value="3">Trimestral</option>
+                  <option value="4">Semestral</option>
+                  <option value="5">Anual</option>	
+    	  	  	</select>
+    	  	   </div>
+    	  	   <div class="col-md-6 col-xs-6">
+    	  	  	<label>Cuotas</label>
+    	  	  	<input type="text" name="inp_cuot" class="form-control" id="inp_cuot">
+    	  	   </div>
+    	  	  </div>
+    	  	 </fieldset>		
+    	  	 <div class="container-fluid">
+    	  	   <a href="#" class="btn btn-success btn-xs pull-right" id="btn_save_change">Guardar Cambios</a>
+    	  	 </div>
+    	  	</div>
+    	  </div>
+    	  <div role="tabpanel" class="tab-pane fade disabled" id="messages">
+        	<div class="container">
+    	  	   <div class="alert alert-danger">
+    	  	   	 <strong>¿ Requiere Servicio Tecnico para instalacion ?</strong>
+    	  	   </div>
+    	  	 <div class="container-fluid">
+    	  	  <div class="btn-group" data-toggle="buttons">
+    	  	  	<label class="btn btn-info">
+			          <input type="radio" name="options" class="rdo_servi_tect" autocomplete="off" value="si">SI
+				        <span class="glyphicon glyphicon-ok"></span>
+				      </label>
+				      <label class="btn btn-danger">
+				        <input type="radio" name="options" class="rdo_servi_tect" autocomplete="off" value="no">NO
+				          <span class="glyphicon glyphicon-ok"></span>
+				      </label>
+			      </div>
+    	  	 </div>
+           <div class="container-fluid" id="panel_prioridad" style="display:none">
+            <div class="alert alert-info"> <strong>Por favor, establesca el nivel de prioridad</strong></div>
+             <select class="form-control" name="slt_priori" id="slt_priori">
+               <option></option>
+               <option value="1">Baja</option>
+               <option value="2">Media</option>
+               <option value="3">Alta</option>
+             </select>
+           </div> 
+           <div class="container-fluid">
+             <a href="#" class="btn btn-success" id="btn_save_servi_tect">Guardar</a>
+           </div>
+    	  	</div>
+        </div>
+    	   <div role="tabpanel" class="tab-pane fade disabled" id="settings">
+        	 <div class="container-fluid">
+    	  	    <div class="alert alert-success">
+    	  	   	 <strong>¿ Aplica algun descuento ?</strong>
+    	  	    </div>
+    	  	 	  <div class="container-fluid">
+    	  	  	 <div class="btn-group" data-toggle="buttons">
+    	  	  	  <label class="btn btn-warning">
+				          <input type="radio" name="options_" class="btn_descuen" autocomplete="off" value="si">SI
+					          <span class="glyphicon glyphicon-ok"></span>
+				        </label>
+				        <label class="btn btn-danger">
+				          <input type="radio" name="options_" class="btn_descuen" autocomplete="off" value="no">NO
+					           <span class="glyphicon glyphicon-ok"></span>
+				        </label>
+				       </div>
+				      </div> 
+    	  	 </div>
+    	  	 <div class="container-fluid" style="margin-top:20px;">
+    	  	   <div class="alert alert-warning ocultar" style="display:none;"><strong>Nuevo Costo a Facturar</strong></div>
+    	  	   <input type="text" class="form-control" name="inp_cost_new" id="inp_cost_new" style="display:none;" placeholder="Escribir el nuevo precio">	
+    	  	 </div>
+    	  	 <div class="container-fluid" style="margin-top:20px;">
+    	  	   <div class="alert alert-warning ocultar" style="display:none;"><strong>Descripcion del porque se hizo un descuento</strong></div>
+    	  	   <textarea class="form-control" name="inp_report_desc" rows="4" id="inp_report_desc" style="display:none;" placeholder="Escriba las razones por las que se hizo el descuento"></textarea>	
+    	  	 </div>
+    	  	 <div class="container-fluid ocultar" style="display:none;margin-top:20px;">
+				    <input type="hidden" name="id_num_contrat">
+            <a href="#" class="btn btn-info pull-right" id="btn_save_config_descuent">Guardar</a>
+			     </div>
+    	   </div>
+    	   <div role="tabpanel" class="tab-pane fade disabled" id="finalizar">
+           <input type="hidden" name="accion" value="modificar_contrato">
+		       <button type="button" id="myButton" data-loading-text="Activando" class="btn btn-success" autocomplete="off">
+  				  Guardar y Activar Contrato
+			     </button>
+  		   </div>
+  		</div>
+  		
+	  </div>
+    </div>
+   </div>
+  </div>

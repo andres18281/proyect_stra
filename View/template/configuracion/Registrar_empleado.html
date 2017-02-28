@@ -1,0 +1,141 @@
+<form id="form_create_employed">
+ <div class="col-md-10">
+    <div class="col-md-11">
+      <div class="form-horizontal" role="form">
+        <fieldset>
+          <!-- Form Name -->
+          <legend>Agregar Empleado</legend>
+          <!-- Text input-->
+          <div class="form-group well">
+            <div class="col-sm-8">
+              <label>Cedula</label>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i> </span>
+                <input type="number" class="form-control" name="cedu" id="inp_txt_ced">
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+                  <label>Nombre</label> 
+                  <input type="text" name="nomb" class="form-control" id="inp_txt_nomb">
+                </div>
+                <div class="col-md-6">
+                  <label>Apellido</label>
+                  <input type="text" name="apell" class="form-control" id="inp_txt_apell">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6">
+                  <label>Telefono</label>
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-phone-alt"></i> </span>
+                    <input type="number" name="tel" class="form-control" id="inp_txt_tel">
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <label>Celular</label>
+                  <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-phone"></i> </span>
+                    <input type="text" name="cel" class="form-control" id="inp_txt_cel">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4"> 
+              <a href="#" class="thumbnail">
+
+                <img class="input-group image-preview" id="dynamic" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTU0Mzk0ZTFlNjcgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTQzOTRlMWU2NyI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" alt="...">
+              </a>
+            </div>
+          </div>    
+          <!-- Text input-->
+          <div class="form-group well">
+            <div class="col-sm-4">
+              <label>Departamento</label> 
+              <select name="depar" class="form-control inp_depart">
+               <option></option> 
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <label>Ciudad</label>
+              <select name="ciud" class="form-control inp_ciud_emp"> 
+               <option></option> 
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <label>Barrio</label>
+              <input type="text" name="barrio" class="form-control" id="inp_txt_barri">
+            </div>
+          </div>
+          <!-- Text input-->
+          <div class="form-group well">
+            <div class="col-sm-6">
+              <label>Direccion</label>
+              <div class="input-group"´>
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-home"></i> </span>
+                <input type="text" name="dire" class="form-control" id="inp_txt_dir">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label>Email</label>
+              <div class="input-group"´>
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-envelope"></i> </span>
+                <input type="text" name="email" class="form-control" id="inp_txt_emai">
+              </div>
+            </div>
+
+          </div>
+          <!-- Text input-->
+          <div class="form-group well">
+            <div class="col-sm-4">
+              <label>Area de trabajo</label>
+              <select name="area" class="form-control" id="slt_depart_empre">
+               <option></option> 
+              </select>
+            </div>
+            <div class="col-sm-4">
+              <label >Cargo</label>
+              <div class="input-group"´>
+                <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-briefcase"></i> </span>
+                <select class="form-control" name="carg" id="slt_carg_empre">
+                 
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <label >Tipo Empleado</label>
+              <select class="form-control" name="tipo_emp" id="slt_tip_emplo">
+                <option value="1">Jefe</option>
+                <option value="2">Cordinador</option>
+                <option value="3">Empleado</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group well">
+            <div class="col-sm-4">
+              <label >Fecha de inicio</label>
+              <input type="text" data-provide="datepicker" class="form-control fecha date" id="inp_txt_fech1"></input>
+            </div>
+            <div class="col-sm-4">
+              <label >Fecha finalizado</label>
+              <input type="text" data-provide="datepicker" class="form-control fecha date" id="inp_txt_fech2"></input>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <button  class="btn btn-default btn-block">Limpiar Campos</button>
+            </div>
+            <div class="col-sm-4">
+                <button type="submit" class="btn btn-danger btn-block" id="btn_save_emplo">Guardar</button>
+            </div>  
+          </div>
+
+        </fieldset>
+      </div>
+    </div><!-- /.col-lg-12 -->
+ </div><!-- /.row -->
+ <input type="file" id="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" style="display:none;"/>
+   <input type="hidden" name="create_employed">
+</form>
+  

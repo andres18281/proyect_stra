@@ -1,0 +1,105 @@
+<div class="col-xs-12">
+				  <div class="container-fluid">
+                     <div class="panel panel-default">
+                     	<div class="panel-heading"> Añadir Servicios</div>
+                     	<div class="panel-body">
+                     	  <div class="row clearfix">
+    						<div class="col-md-12 table-responsive">
+							  <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+								<thead>
+								 <tr>
+								   <th class="text-center">
+									Codigo del Servicio
+								   </th>
+								   <th class="text-center">
+									 Nombre
+								   </th>
+							   	   <th class="text-center">
+									Item del Servicio
+								   </th>
+								   <th class="text-center">
+									Costo
+								   </th>
+    							   <th class="text-center">
+									Tiempo
+								   </th>
+        						   <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+								   </th>
+								  </tr>
+								</thead> 
+								<tbody>
+    							 <tr>
+									<td>
+						    			<input type="text" id="inp_cod_serv" name='name0'  placeholder='Codigo servicio' class="form-control"/>
+									</td>
+									<td >
+						    			<input type="text" id="inp_nomb_serv" name='mail0' placeholder='Nombre' class="form-control"/>
+									</td>
+									<td >
+						    			<select name="sel0" id="slt_tip_serv" class="form-control"><!-- tipo de servicio // se llena con ajax automaticamente--> 
+        				        		
+						    		  </select>
+									</td>
+    								<td>
+						    		  <input type="number" name='mail0' id="inp_cost_serv" placeholder='Costo' class="form-control"/>
+									</td>
+                        			
+                        			<td>
+						    		  <select name="sel0" id="slt_time_serv" class="form-control">
+        				        		<option value"">Seleccionar</option>
+    					        		<option value"1">dia</option>
+        				        		<option value"2">Mensual</option>
+        				        		<option value"3">Trimestral</option>
+        				        		<option value"4">Semestral</option>
+        				        		<option value"5">Anual</option>
+						    		  </select>
+									</td>
+								 </tr>
+								</tbody>
+							  </table>
+							</div>
+						  </div>
+						  <a class="btn btn-default pull-right" id="add_servi_new">Añadir Registro</a>
+                     	</div><!--panel-body-->
+                     </div>
+				  </div>
+				</div>
+				<div class="col-xs-12">
+				  <div class="container">
+                     <div class="panel panel-default">
+                     	<div class="panel-heading"> Servicios listados</div>
+                     	<div class="panel-body">
+                     	  <div class="row clearfix">
+    						<div class="col-md-12 table-responsive">
+							  <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+								<thead>
+								 <tr>
+								   <th class="text-center">
+									Codigo del Servicio
+								   </th>
+								   <th class="text-center">
+									 Nombre
+								   </th>
+							   	   <th class="text-center">
+									Item del Servicio
+								   </th>
+								   <th class="text-center">
+									Costo
+								   </th>
+    							   <th class="text-center">
+									Tiempo
+								   </th>
+        						   <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+								   </th>
+								  </tr>
+								</thead>
+								<tbody id="row_list_servi">
+    							 
+								</tbody>
+							  </table>
+							</div>
+						  </div>
+                     	</div><!--panel-body-->
+                     </div>
+				  </div>
+				</div>

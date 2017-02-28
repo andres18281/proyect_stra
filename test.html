@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<link href="View/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<style>
+	body{
+		padding:20px
+	}
+	#map-canvas {        
+		height: 400px;
+		width: 600px;        
+	}
+	pre {
+		border:1px solid #D6E0F5;
+		padding:5px;
+		margin:5px;
+		background:#EBF0FA;
+	}
+	table {
+	   border-collapse: collapse;
+	}
+	td{ border: 1px solid #B0B0B0;
+		padding: 5px;
+		background-color: #F8F8F8 ;               
+	}          
+	</style>
+</head>
+<body>
+ <div id="map-canvas"></div>	
+	<br/>
+	<table id='myTable'>
+	   <tbody>		
+	   </tbody>		
+	</table>
+</body>
+</html>
+
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMI0YtR9vefzDJmht_CK5Y9Cs0g_fmJIk&callback=initMap"></script>
+ <!--
+<script src="http://maps.googleapis.com/maps/api/js" type="text/javascript"></script>	-->
+<script src="View/assets/js/jquery/jquery-2.1.0.min.js"></script>
+<script src="View/assets/js/bootstrap/bootstrap.js"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>-->
+
+
+
+ <script type="text/javascript">
+$(function(){
+ 	function google_mapa(){	
+  		// create a Google Maps map variable 
+		var map;
+		// create a location variables
+		var myLocation = new google.maps.LatLng(3.3950619 , -76.5957039);
+		// create a pop-up window variable
+		var myInfoWindow = new google.maps.InfoWindow();	
+		// A function to create the marker and InfoWindow
+		function createMarkerAndInfoWindow(location, name, html) {
+			// create marker for location provided
+			var marker = new google.maps.Marker({
+			position : location,
+			map: map,
+			title: 'This is the default tooltip!',
+			draggable: true
+			});
+			// Add listener on market which will show infoWindow when clicked
+			google.maps.event.addListener(marker, "click", function() {
+			  myInfoWindow.setContent(html);
+			  myInfoWindow.open(marker.getMap(), marker);
+			});
+			// Add listener on 'drag end' event, add logitude and latitude to beginning of table
+			google.maps.event.addListener(marker, 'dragend', function(evt){	
+				alert("latitud"+evt.latLng.lat().toFixed(5) +" longitud"+ evt.latLng.lng().toFixed(5));			
+			});
+			// listener on drag event
+			google.maps.event.addListener(marker, 'dragstart', function(evt){
+				// nothing for now
+			});	
+			return marker;
+		}
+		function initialize() {
+			var mapOptions = {
+				zoom : 10,
+				center : myLocation,
+				draggable: true,
+				mapTypeId : google.maps.MapTypeId.ROADMAP
+			};
+			// create the map
+			map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+			// add marker
+			var marker = createMarkerAndInfoWindow(myLocation, "myMarkerName", 
+				"You can add all sorts of <br/> <b>formattted</b> content to the <br/>InfoWindow!");
+			marker.setMap(map);	
+		}
+	
+		// add a listener to the window object, which as soon as the load event is 
+		// triggered (i.e. "the page has finished loading") executes the function "initialize"
+		google.maps.event.addDomListener(window, 'load', initialize);
+ 	}		
+  google_mapa();
+});
+
+</script>

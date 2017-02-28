@@ -1,0 +1,201 @@
+
+  <style type="text/css">
+  .carousel {
+    width: 600px;
+  }
+
+/* Indicators list style */
+.article-slide .carousel-indicators {
+    bottom: 0;
+    left: 0;
+    margin-left: 5px;
+    width: 100%;
+}
+/* Indicators list style */
+.article-slide .carousel-indicators li {
+    border: medium none;
+    border-radius: 0;
+    float: left;
+    height: 54px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 5px !important;
+    margin-top: 0;
+    width: 100px;
+}
+/* Indicators images style */
+.article-slide .carousel-indicators img {
+    border: 2px solid #FFFFFF;
+    float: left;
+    height: 54px;
+    left: 0;
+    width: 100px;
+}
+/* Indicators active image style */
+.article-slide .carousel-indicators .active img {
+    border: 2px solid #428BCA;
+    opacity: 0.7;
+}
+.requerido_texto{
+  border:double 4px #f7000c;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright:5px;
+-moz-border-radius-bottomleft:5px;
+-moz-border-radius-bottomright:5px;
+-webkit-border-top-left-radius:5px;
+-webkit-border-top-right-radius:5px;
+-webkit-border-bottom-left-radius:5px;
+-webkit-border-bottom-right-radius:5px;
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
+}
+  </style>
+  <style>
+  .div_form{
+    margin-top:10px;
+  }
+</style>
+<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="panel panel-default">
+     <div class="widget-content">
+      <ul class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom tabs-iconized">
+        <li class="active "><a data-toggle="tab" href="#home">Contratos sin activar</a></li>
+        <li><a data-toggle="tab" href="#informe">Ver informe</a></li>
+        <li><a data-toggle="tab" href="#materiales">Materiales solicitados</a></li>
+        <li><a data-toggle="tab" href="#activar">Activar</a></li>
+      </ul>
+      <div class="panel-body tab-content"> 
+        <div class="container-fluid well well-sm tab-pane fade in active" id="home">
+          <div class="col-xs-4">
+            <div class="panel-default">
+             <form id="form_list_contrat_sin_activar">
+              <table class="table table-hover">
+                <thead>
+               	 <th>Id contrato</th>
+              	 <th>Costo</th>
+              	 <th>Descripcion</th>
+              	 <th>Accion</th>
+                </thead>	
+                <tbody id="list_contrat">
+              	
+                </tbody>
+              </table>
+             </form>	
+            </div>
+          </div>
+          <div class="col-xs-8 container-fluid" id="panel_contrato">
+          	 
+          </div> 
+        </div>
+        
+        <div class="container-fluid well well-sm tab-pane fade" id="informe">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+               <label>Fotos</label>
+            </div>
+            <div class="panel-body container-fluid">
+             <div class="col-xs-6">
+              <div class="carousel slide article-slide" id="article-photo-carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner cont-slider" id="list_imagen">
+                </div>
+                 <!-- Indicators -->
+                <ol class="carousel-indicators" id="list_indicator">
+                  
+                </ol>
+              </div>
+             </div>
+             <div class="col-xs-6">
+              <div class="panel">
+                <label class="label label-primary">Informe</label>
+              </div>
+              <div class="panel">
+                 <p id="p_descripcion"></p>
+              </div>
+             </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid tab-pane fade" id="materiales">
+            <div class="col-xs-6 well well-sm">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                 <label>Listado de materiales para realizar la instalacion</label>
+              </div>
+              <div class="panel-body">
+               <table class="table table-hover table-striped">
+                 <thead>
+                   <th style="text-align: center">Material</th>
+                   <th style="text-align: center">Cantidad</th>
+                 </thead>
+                 <tbody id="list_material"></tbody>
+               </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- buscar-->
+        <div class="container-fluid tab-pane fade" id="activar">
+          <div class="panel-default">
+            <div class="col-xs-4">
+              <div class="alert alert-info">
+                 Al dar click en <label class="label label-primary"> activar contrato</label> se activara el contrato y generara las cuotas correspondientes a la forma de pago
+              </div>
+              <a href="#" class="btn btn-primary btn-lg btn-block btn_activar panel_visible" id="" style="display:none">Activar contrato</a>
+            </div>
+            <div class="col-xs-8">
+               <!--<div class="alert alert-success"><strong>Activado con exito</strong></div>-->
+               <div class="panel panel-default panel_visible" style="display:none">
+                 <div class="panel-heading" style="text-align: center">
+                   <label>Pagos a realizar</label>
+                 </div>
+                 <div class="panel-body">
+                   <table class="table table-hover table-striped">
+                     <thead>
+                       <th>Fecha inicio</th>
+                       <th>Fecha fin</th>
+                       <th>Monto a pagar</th>
+                       <th>Accion</th>
+                     </thead>
+                     <tbody id="list_pagos">
+                     </tbody>
+                     <tfoot>
+                       <th></th>
+                       <th></th>
+                       <th id="td_total"></th>
+                       <th></th>
+                     </tfoot>
+                   </table>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div><!--tab-content-->
+     </div>
+    </div><!--panel-default-->
+  </div><!--row-->
+</div><!--container-->
+<div id="myModal_msn" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Exito !!</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-success">
+          <strong>Contrato se ha activado exitosamente</strong>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

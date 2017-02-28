@@ -1,0 +1,46 @@
+<div class="container-fluid">
+
+  <!-- Nav tabs -->
+  		<ul class="nav nav-tabs" role="tablist">
+    	  <li role="presentation" class="active"><a href="#solici" aria-controls="solici" role="tab" data-toggle="tab">Solicitudes</a></li>
+    	  <li role="presentation"><a href="#autorizado" aria-controls="autorizado" role="tab" data-toggle="tab">Autorizado</a></li>
+    	  <li role="presentation"><a href="#historial" aria-controls="historial" role="tab" data-toggle="tab">Historial</a></li>
+  		</ul> 
+  <!-- Tab panes -->
+  		<div class="tab-content">
+    	   <div role="tabpanel" class="tab-pane active" id="solici">
+    	   	   
+    	   </div>
+    	   <div role="tabpanel" class="tab-pane" id="autorizado">
+    	   	  <div class="row">
+				<div class="col-sm-6">
+				    <label class="bg-primary">Listado de solicitudes autorizados</label>
+				    <ul class="list-group" id="list_autori">
+
+				   	</ul>
+				</div>
+				<div class="col-sm-6" id="show_autori">
+				  <label class="bg-danger">Listado de materiales solicitados</label>
+				  <div class="container-fluid">
+				  	<ul class="nav nav-tabs" role="tablist">
+    	  				<li role="presentation" class="active"><a href="#subtab_auto" aria-controls="subtab_auto" role="tab" data-toggle="tab">Solicitudes</a></li>
+  					</ul> 
+  					<div class="tab-content">
+    	   				<div role="tabpanel" class="tab-pane active">
+    	   				  <table class="table table-responsive table-hover">
+    	   				    <thead>
+    	   				      <th>Nombre</th>
+    	   				      <th>cantidad</th>
+    	   				    </thead>
+    	   				    <tbody id="subtab_auto">
+    	   				    </tbody>
+    	   				  </table>
+				  		</div>
+				  	</div>
+				  </div>
+				</div>
+		      </div>	
+    	   </div>
+    	   <div role="tabpanel" class="tab-pane" id="historial">...</div>
+  		</div>
+</div>

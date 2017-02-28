@@ -13,93 +13,87 @@
         public $host;
         public $user;
         public $pass; 
-        public $mysqli;
+        private $mysqli;
         public $db;
 	      public $array = array();
-        public function __construct($user,$pass){
-                $this->host = "localhost";//"190.84.233.180";
-                $this->user = $user;
-                $this->pass = $pass;
-                $this->db = "logistica_";   
-        }
-
-        public function connect(){             
-           return $this->mysqli = new mysqli($this->host, $this->user, $this->pass, $this->db);   
-        }
-
-
-        public function inserta($tablas,$params = array()){
-            $array = array("mensaje"=>"Hay un problema interno que debe solucionarse");
-            if($this->connect()){
-             if(isset($tablas)){
-                //  $inserta = 'INSERT INTO '.$tablas.' ('.implode("','",array_keys($parametros)).'") VALUES ("'.implode("','",$parametros).'")"';
+        public function __construct(){
+           //  $this->host = "localhost";//"190.84.233.180";
+            // $this->user = "root";
+           ///  $this->pass = "123456";
+          //   $this->db = "stratecsa%%";
                
-                $inserta = 'INSERT INTO `'.$tablas.'` (`'.implode('`, `',array_keys($params)).'`) VALUES ("' . implode('", "', $params) . '")';
-                $insercion = $this->mysqli->query($inserta);
-                if($insercion){
-                    $array = array("exito"=>"Insercion con exito",
-                                   "last_cod_id"=>$this->mysqli->insert_id,
-                                   "mensaje"=>"Si inserto");
-                }else{
-                    $array = array("error"=>$this->mysqli->errno);
-                }
-              }
-            }else{
-             $array = array("mensaje"=>"No se pudo conectar a la base de datos, intentelo de nuevo");
-            }
-            return $array;
+          //$this->mbd = new PDO('mysql:host=127.0.0.1;dbname=stra_stra_stratecsa_serve;port=3306', 'stra_user_factur', 'NTfLK,x7FQ6H');
+          $this->mbd = new PDO('mysql:host=127.0.0.1;dbname=stratecsa%%;port=3306', 'root', '123456');
+            
         }
 
-
-        public function consultas($sql){
-           if($this->connect()){
-              if($result = $this->mysqli->query($sql)){
-                    if($result->num_rows == 1){
-                        $row = $result->fetch_array(MYSQL_NUM);
-                        $this->close_conection();
-                        return $row;    
-                    }elseif($result->num_rows > 1){
-                      while($row = $result->fetch_array(MYSQL_NUM)){
-                       // $array = Array("codigo"=>$row);
-                        $array_[] = $row;
-                      }
-                      $this->close_conection();
-                      return $array_;
-                    //$this->mysqli->free_result($result);
-                    }else{
-                //  $this->close_conection();
-                      return null;
-                    }
-              }
-           }
+      function inserta($tablas,$params = array()){
+        $inserta = 'INSERT INTO `'.$tablas.'` (`'.implode('`, `',array_keys($params)).'`) VALUES ("' . implode('", "', $params) . '")';
+        echo $inserta;
+        $sentencia = $this->mbd->prepare($inserta);
+        $dato = $sentencia->execute();
+        $response = $sentencia->fetch(PDO::FETCH_ASSOC);
+        if(isset($response)){
+          $array = array("exito"=>"Insercion con exito",
+                        "last_cod_id"=>$this->mbd->lastInsertId(),
+                        "mensaje"=>"Si inserto");
+        }else if($response == false){
+          $array = array("error"=>$this->mbd->errorInfo());
         }
+        return $array;
+      }
+
+
+      function consultas($sql){
+        $data = $this->mbd->prepare($sql);
+        $data->execute();
+        $num = $data->rowCount();
+        if($num > 1){
+          $result = $data->fetchAll(PDO::FETCH_ASSOC); 
+        }else{
+          $result = $data->fetch(PDO::FETCH_ASSOC);
+        }
+        return $result;
+      }
+
 
       public function update_query($query){
-        $salida = array("error"=> "Problemas al actualizar datos.");
-        if($this->connect()){
-           if($this->mysqli->query($query)){
-              $salida = array("mensaje"=> "Datos actualizados con exito\n Filas afectadas: ".$this->mysqli->affected_rows,
-                              "exito"=>"Actualizacion con exito");                     
-           }else{
-              $salida = array("error"=>"Problemas, no hay actualizacion",
-                              "codigo"=>$this->mysqli->errno);
-           }
-            return $salida;    
+        $stmt = $this->mbd->prepare($query); 
+        $stmt->execute();
+        $response = $stmt->fetch(PDO::FETCH_BOTH);
+        if(isset($response)){
+          $salida = array("exito"=>"Actualizacion con exito","last_cod_id"=>$this->mbd->lastInsertId());                     
+        }else{
+          $salida = array("error"=>"Problemas, no hay actualizacion",
+                        "codigo"=>$response['errorInfo']);
+        }
+        return $salida;    
+      }
+
+
+      public function insert_update($table,$params){
+        $values = '';
+        $query = 'INSERT INTO `'.$table.'`(`'.implode('`, `',array_keys($params)).'`) VALUES ("' . implode('", "', $params) . '")';
+        foreach ($params as $key => $value) {       
+          $values .= $key.'="'.$value.'",';       
+        }
+        $values = substr($values, 0,strlen($values)-1);
+        $query = $query.' ON DUPLICATE KEY UPDATE '.$values;
+        $stmt = $this->mbd->prepare($query); 
+        $stmt->execute();
+        $response = $stmt->fetch(PDO::FETCH_BOTH);
+        if(isset($response)){
+          $salida = array("exito"=>"Actualizacion con exito","last_cod_id"=>$this->mbd->lastInsertId());                     
+        }else{
+          $salida = array("error"=>"Problemas, no hay actualizacion",
+                        "codigo"=>$response['errorInfo']);
         }
       }
 
 
 
 
-        public function close_conection(){
-            
-            $this->mysqli->close();
-	      //  unset($this->mysqli);
-        }
-
-        public function sanitize($val){
-           return $this->mysqli->real_escape_string($val);                  
-        } 
+        
 
 
 }

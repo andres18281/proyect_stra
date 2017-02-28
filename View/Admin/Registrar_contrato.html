@@ -1,0 +1,204 @@
+
+<div class="container-fluid">
+  <div class="row">
+   <div class="col-md-3 col-sm-3 col-lg-3">
+     <div class="panel panel-default">
+       <div class="panel-heading">
+         Digitar Cedula o Nit de Cliente
+       </div>
+       <div class="panel-body">
+        <div class="col-md-12">
+         <input type="text" class="form-control" id="inp_ced_client">
+        </div>
+        <div class="col-md-4 col-md-offset-8">
+         <button class="btn btn-danger" id="btn_buscar_client">Buscar</button>
+        </div>
+       </div>
+     </div>
+   </div>
+   <div class="col-md-9 col-lg-9 col-sm-9"> 
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab1info" data-toggle="tab" style="color:black">Agregar Contrato</a></li>
+              <li><a href="#tab2info" data-toggle="tab" style="color:black">Ver Contratos</a></li>
+              <li><a href="#tab3info" data-toggle="tab" style="color:black">Pagos</a></li>  
+            </ul>
+          </div>
+          <div class="panel-body">
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="tab1info">
+               <form id="form_contrato_create" name="form_contrato_create">
+                <div class="row">
+                 <div class="container-fluid" style="background-color: rgba(32, 12, 24, 0.1);">
+                   <fieldset>
+                    <legend style="color:black">Informacion de contrato</legend>
+                    <div class="container-fluid">   
+                      <div class="col-md-4" for="textinput"><label>ID Contrato</label></div>  
+                      <div class="col-md-8">
+                        <input id="inp_id_contrat" name="inp_id_contrat" type="text" placeholder="Id del Contrato" class="form-control input-md" readonly="true">
+                      </div>
+                    </div>
+                    <div class="container-fluid" style="margin-top: 10px;">
+                      <div class="col-md-4"><label>Servicio</label>
+                        <select id="tip_servi" name="slt_tip_contrat" class="form-control" required style="background-color:white">
+                        </select>
+                      </div>                      
+                      <div class="col-md-8">
+                        <label> Descripcion Servicio</label>
+                        <select id="descrip_servi" name="slt_descrip_servi" class="form-control" style="background-color:white">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="container-fluid" style="margin-top: 10px;">
+                      <div class="col-md-4"><label>Departamento</label>
+                        <select id="stl_departa" name="stl_departa" class="form-control" required style="background-color:white">
+                         <option></option>
+                        </select>
+                      </div>                      
+                      <div class="col-md-8">
+                        <label> Ciudad</label>
+                        <select id="slt_ciudad" name="slt_ciudad" class="form-control" required style="background-color:white">
+                        </select>
+                      </div>
+                    </div>
+
+                    
+                    <div class="container-fluid" style="margin-top: 10px;">
+                      <div class="col-md-4">
+                        <label style="color:black">Descripcion del contrato</label>
+                      </div>                      
+                      <div class="col-md-8">
+                        <textarea class="form-control" name="text_descrip" id="text_descrip"></textarea>
+                      </div>
+                    </div>
+                    <div class="container-fluid" style="margin-top: 10px;margin-bottom: 10px">
+                      <div class="col-md-4">
+                        <label>Tiempo de Servicio</label>
+                        <input id="inp_time_service" name="inp_time_service" type="text" placeholder="Tiempo" class="form-control input-md" id="inputInfo">
+                      </div>
+                      <div class="col-md-4">
+                        <label>Costo</label>
+                        <input id="inp_calcu_cost" name="inp_calcu_cost" type="text" placeholder="Tiempo" class="form-control input-md" id="inputInfo">
+                      </div>
+                    </div>
+                  </fieldset>
+                 </div>
+                  <div class="col-md-12" style="margin-top: 10px;background-color: rgba(32, 12, 24, 0.1);">
+                   <div class="col-md-12" style="margin-bottom: 10px">
+                    <fieldset>
+                     <legend style="color:black">Pagos</legend>
+                      <div class="col-md-4">
+                        <label>Forma de pago</label>
+                        <select class="form-control" name="slt_tip_pago" id="slt_tip_pago" required style="background-color:white">
+                          <option></option>
+                          <option value="1">Un solo pago</option>
+                          <option value="2">Mensual</option>
+                          <option value="3">Trimestral</option>
+                          <option value="4">Semestral</option>
+                          <option value="5">Anual</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <label>Cuotas (si aplica)</label>
+                        <input type="number" name="inp_time" class="form-control" id="inp_time">
+                      </div>
+                    </fieldset>
+                   </div>
+                  </div>
+                  <div class="col-md-12" style="margin-top: 10px;background-color: rgba(32, 12, 24, 0.1);">
+                   <div class="col-md-12" style="margin-bottom: 10px">
+                    <fieldset>
+                     <legend style="color:black">Fecha de inicio y fin de contrato</legend>
+                     <div class="form-group">
+                       <label class="col-md-2 control-label" required for="textinput">Fecha de inicio</label>  
+                       <div class="col-md-4">
+                         <input id="inp_time_ini" name="inp_time_ini" data-provide="datepicker" placeholder="Fecha inicio" class="form-control input-md fecha date" data-date-format="yyyy-mm-dd" required>
+                       </div>
+                       <label class="col-md-2 control-label" for="textinput" required> Fecha final</label>  
+                       <div class="col-md-4">
+                         <input id="inp_time_fin" name="inp_time_fin" data-provide="datepicker" type="text" placeholder="Fecha Final" class="form-control input-md date fecha" data-date-format="yyyy-mm-dd" required>
+                       </div>
+                     </div>
+                    </fieldset>
+                   </div>
+                  </div>
+                  <div class="col-md-12" style="margin-top: 10px;">
+                      <div class="col-md-4 col-md-offset-8">
+                        <input type="hidden" name="inp_hid_id_client">
+                        <input type="hidden" name="accion" value="create_contrato">
+                        <button id="btn_save_contrat" name="singlebutton" class="btn btn-primary" style="display:none">Agregar Contrato</button>
+                      </div>
+                  </div>
+                 </form>  
+                </div>
+              </div><!--row-->
+             
+              <div class="tab-pane fade" id="tab2info">                
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="alert alert-success" style="display:none;">
+                        <span class="glyphicon glyphicon-ok"></span> Drag table row and cange Order
+                      </div>
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>
+                              <label style="color:black"> ID Contrato</label>
+                            </th>
+                            <th>
+                              <label style="color:black"> Item del Servicio</label>
+                            </th>
+                            <th>
+                              <label style="color:black">Tiempo</label>
+                            </th>
+                            <th>
+                             <label style="color:black"> Fecha de Inicio</label>
+                            </th>
+                            <th>
+                             <label style="color:black"> Fecha Final</label>
+                            </th>
+                            <th>
+                              <label style="color:black">Estado</label>
+                            </th>
+                            <th>
+                             <label style="color:black"> Accion</label>
+                            </th>
+                           </tr>
+                        </thead>
+                        <tbody id="table_list_contrat">
+                           
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                
+              </div>
+              <div class="tab-pane fade" id="tab3info">
+                <div class="container-fluid">
+                  <table class="table table-hover">
+                    <thead>
+                      <th>Id</th>
+                      <th>Fecha Inicio</th>
+                      <th>Fecha Fin</th>
+                      <th>Costo</th>
+                      <th>Fecha Costo</th>
+                      <th>Pago confirmado</th>
+                    </thead>
+                    <tbody id="list_fact_">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab4info">Info 4</div>
+                <div class="tab-pane fade" id="tab5info">Info 5</div>
+              </div>
+            </div>
+          </div><!--panel-body-->
+        </div>
+      </div>
+    
+  </div>
+</div>
+

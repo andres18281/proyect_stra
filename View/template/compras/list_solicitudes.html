@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="col-xs-6 col-md-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+       <h2> Listado de solicitudes</h2>
+     </div>
+     <div class="panel-body">
+      <table class="table table-condensed table-hover">
+       <thead>
+        <tr>
+          <th>Empleado Solicitante</th>
+          <th>Tipo de solicitud</th>
+          <th>Fecha de Solicitud</th>
+          <th>Accion</th>
+        </tr>
+        </thead>
+        <tbody id="list_solicit">
+        </tbody>
+       </table>  
+     </div>
+    </div>
+  </div>
+  <div class="col-xs-6 col-md-6" id="panel_opcion" style="display:none;">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <label>Opciones</label>
+      </div>
+      <div class="panel-body">
+        <div class="container-fluid">
+          <a href="#" class="btn btn-success pull-right btn-block" id="btn_autorizar">Autorizar solicitud</a>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home_">Materiales</a></li>
+            <li><a data-toggle="tab" href="#contrat">Contrato</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="home_" class="tab-pane fade">
+             <div class="container-fluid">
+              <h3> Listado de Materiales</h3>
+              <p><div id="listado"></div></p>
+             </div>
+            </div>
+            <div id="contrat" class="tab-pane fade">
+             <div class="container-fluid">
+              <h3>Contrato</h3>
+              <p><div id="home"></div></p>
+             </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

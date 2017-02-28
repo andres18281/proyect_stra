@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+   <label> Tipo de Evento</label>
+  </div>
+  <div class="panel-body">
+   	  <div class="container-fluid">
+  	    <div class="col-md-3">
+           <label>Id de Servicio</label> 
+           <input type="text" class="form-control" id="id_evento">
+        </div>
+        <div class="col-md-3">
+          <label> Tipo de Evento</label>
+  	    	 <select class="form-control" id="slt_servi">
+  	    	 </select>
+  	      </div>
+        <div class="col-md-5">
+          <label>Nombre Evento</label> 
+          <input type="text" class="form-control" id="txt_nomb_even">
+        </div>
+      </div>
+      <div class="container">
+        <div class="col-md-8">
+          <label> Breve descripcion sobre este evento</label>
+          <textarea type="text" class="form-control" id="descrip_event"></textarea>
+        </div>
+        <div class="col-md-3" style="margin-top: 30px;" placeholder="Por favor, describa que realizara este evento">
+          <button class="btn btn-success btn-block" id="btn_add_event">Agregar</button>
+        </div>
+      </div> 	 
+  	  <div class="container">
+  	    <table class="table">
+     	    <thead>
+  	        <th>Id</th>	
+   	        <th>Servicio</th>	
+   	        <th>Evento</th>
+   	      </thead>
+   	      <tbody id="tbody_event">
+   	      </tbody>
+   	    </table>
+      </div>
+   </div>     
+</div>
