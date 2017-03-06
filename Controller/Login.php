@@ -23,24 +23,26 @@ if(file_exists("constante.php")){
         $user = new Usuarios(); 
         $tipo_usuario = $user->Validar_usuario($this->user,$this->pass);
         if(isset($tipo_usuario)){
-         if(isset($tipo_usuario['str_tipe']) and $tipo_usuario['str_tipe'] == "Empleado"){
-          	$info_emple = $user->Tipo_usuario($tipo_usuario['str_id_user']);
+         if(isset($tipo_usuario[0]['str_tipe']) and $tipo_usuario[0]['str_tipe'] == "Empleado"){
+          	$info_emple = $user->Tipo_usuario($tipo_usuario[0]['str_id_user']);
             $_SESSION['tipo_user_'] = sha1(empleados_stra);
-            $_SESSION['id_user'] = $info_emple['emple_id'];
-      		  $_SESSION['user_nomb'] = $info_emple['emple_nomb'];
-      		  $_SESSION['user_email'] = $info_emple['emple_email'];
-      		  $_SESSION['user_tipo'] = $info_emple['emple_tipo']; // si es jefe
-      		  $_SESSION['user_carg'] = $info_emple['Carg_depart']; // departamento del empleado
-            $_SESSION['user_foto'] = $info_emple['emple_foto'];
-            $_SESSION['user_depart_user'] = $info_emple['Cod_depart'];
+            $_SESSION['id_user'] = $info_emple[0]['emple_id'];
+      		  $_SESSION['user_nomb'] = $info_emple[0]['emple_nomb'];
+      		  $_SESSION['user_email'] = $info_emple[0]['emple_email'];
+      		  $_SESSION['user_tipo'] = $info_emple[0]['emple_tipo']; // si es jefe
+      		  $_SESSION['user_carg'] = $info_emple[0]['Carg_depart']; // departamento del empleado
+            $_SESSION['user_foto'] = $info_emple[0]['emple_foto'];
+            $_SESSION['user_depart_user'] = $info_emple[0]['Cod_depart'];
            return true;
-         }else if(isset($tipo_usuario['str_tipe']) and $tipo_usuario['str_tipe'] == 'Cliente'){
-           $info_emple = $user->Get_cliente($tipo_usuario['str_id_user']); 
+         }else if(isset($tipo_usuario[0]['str_tipe']) and $tipo_usuario[0]['str_tipe'] == 'Cliente'){
+           $info_emple = $user->Get_cliente($tipo_usuario[0]['str_id_user']);
+           $nit = $user->Get_empresa_by_user($tipo_usuario[0]['str_id_user']); 
            $_SESSION['tipo_user_'] = sha1(clientes_stra);
-           $_SESSION['id_user'] = $info_emple['emple_id'];
-           $_SESSION['user_nomb'] = $info_emple['emple_nomb'];
-           $_SESSION['user_email'] = $info_emple['emple_email'];
-           $_SESSION['user_tipo'] = $info_emple['emple_tipo']; // si es jefe
+           $_SESSION['id_user'] = $tipo_usuario[0]['str_id_user'];
+           $_SESSION['nit'] = $nit[0]['nit'];
+           $_SESSION['user_nomb'] = $info_emple[0]['emple_nomb'];
+           $_SESSION['user_email'] = $info_emple[0]['emple_email'];
+           $_SESSION['user_tipo'] = $info_emple[0]['emple_tipo']; // si es jefe
            return true;
          }
         }else{

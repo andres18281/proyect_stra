@@ -41,7 +41,7 @@ class PQR extends Conectar{
                    "Ticket_id_recibe"=>$form['id_canalizar'],
                    "Ticket_date"=>date('Y-m-d'),
                    "Ticket_area"=>1008,
-                   "Ticket_ced_asign"=>null,
+                   "Ticket_ced_asign"=>$form['id_canalizar'],
                    "Ticket_estado"=>2);
      $data = parent::inserta('registro_ticket',$array);
      return $data;
@@ -58,9 +58,8 @@ class PQR extends Conectar{
   	$data = parent::inserta('respuesta_ticket',$array);
     return $data;
   }
-
   public function Get_PQR($id){ 
-  	$sql = 'SELECT Ticket_tel,Ticket_cel,Ticket_Descrip, te.Tip_eve_nomb as nomb_event,ciu.Ciudad_nomb as ciudad,CONCAT(emple_nomb," ",emple_apell) as empleado ,Ticket_date,Ticket_estado,de.Depart_nomb as departament
+  	$sql = 'SELECT Ticket_tel as tel,Ticket_cel as cel,CONVERT(Ticket_Descrip USING utf8) as descri,te.Tip_eve_nomb as nomb,ciu.Ciudad_nomb as ciudad,CONCAT(emple_nomb," ",emple_apell) as id_recibe ,Ticket_date as fecha,Ticket_estado as estado,de.Depart_nomb as area
             FROM registro_ticket rt
             INNER JOIN tipo_evento te ON te.Tip_eve_id = rt.Ticket_event
             INNER JOIN ciudad ciu ON  ciu.Ciudad_id = rt.Ticket_ciudad 
@@ -72,18 +71,19 @@ class PQR extends Conectar{
   }
 
   public function Get_PQR_by_titular($id){ 
-  	$sql = 'SELECT Ticket_id as id,te.Tip_eve_nomb as nomb_event,ci.Ciudad_nomb as ciud,rt.Ticket_id_recibe as canali,rt.Ticket_date as  fecha,rt.Ticket_estado as estado,Depart_nomb as depart
+  	$sql = 'SELECT Ticket_id as id,CONVERT(te.Tip_eve_nomb USING utf8) as nomb_event,CONVERT(ci.Ciudad_nomb USING utf8) as ciud,rt.Ticket_id_recibe as canali,rt.Ticket_date as fecha,CONVERT(rt.Ticket_estado USING utf8) as estado,CONVERT(Depart_nomb USING utf8) as depart
             FROM registro_ticket rt 
             INNER JOIN tipo_evento te ON te.Tip_eve_id = rt.Ticket_event
             INNER JOIN ciudad ci ON ci.Ciudad_id = rt.Ticket_ciudad 
             INNER JOIN departament dpt ON dpt.Id_depart = rt.Ticket_area
             WHERE Nit_empresa = "'.$id.'"';
+            //echo $sql;
   	$data = parent::consultas($sql);
   	return $data;
   }
 
   public function Get_Respond($id){
-  	$sql = 'SELECT rt.Respon_text as respuest,rt.Respon_date as fecha,CONCAT(emp.emple_nomb," ",emp.emple_apell) As empleado,rt.Respon_estad as estado,emp.emple_foto as img
+  	$sql = 'SELECT CONVERT(rt.Respon_text USING utf8) as descri,rt.Respon_date as fecha,CONCAT(emp.emple_nomb," ",emp.emple_apell) As nomb,rt.Respon_estad as estado,emp.emple_foto as img
             FROM respuesta_ticket rt 
             INNER JOIN empleados emp ON emp.emple_id = Respon_recibe_id
             WHERE rt.Respon_id_ticket = '.$id;
@@ -166,7 +166,7 @@ class PQR extends Conectar{
               WHERE Ticket_id = '.$id;
       $id = $this->Last_id_respuesta($id);
       if(isset($id)){
-        $last_id = $id['Respon_id'];
+        $last_id = $id[0]['Respon_id'];
         $upda = 'UPDATE respuesta_ticket 
                  SET Respon_estad = 2
                  WHERE Respon_id = '.$last_id;

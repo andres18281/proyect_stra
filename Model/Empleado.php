@@ -74,5 +74,14 @@ class Empleado extends Conectar{
     $respon = parent::consultas($sql);
     return $respon;
   }
+
+  public function Get_departament_from_employed($id){
+    $sql = 'SELECT CONVERT(cs.Carg_depart USING utf8) as cargo
+            FROM empleados emple 
+            INNER JOIN cargo_stra cs ON cs.Carg_id = emple.emple_carg
+            WHERE emple_id = '.$id;
+    $respon = parent::consultas($sql);
+    return $respon;
+  }
 }
 ?>

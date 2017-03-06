@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2017 a las 22:53:17
+-- Tiempo de generación: 03-03-2017 a las 22:46:35
 -- Versión del servidor: 5.6.30-log
 -- Versión de PHP: 5.6.21
 
@@ -105,7 +105,8 @@ CREATE TABLE `cargo_stra` (
 INSERT INTO `cargo_stra` (`Carg_id`, `Carg_nomb`, `Carg_depart`, `Cargo_tipo`) VALUES
 (101, 'Gerencia', 1000, 'Jefe'),
 (110, 'Soporte', 1008, 'empleado'),
-(111, 'Corporativo', 1000, 'Cordinador');
+(111, 'Corporativo', 1000, 'Cordinador'),
+(112, '', 1007, 'Cordinador');
 
 -- --------------------------------------------------------
 
@@ -124,16 +125,48 @@ CREATE TABLE `ciudad` (
 --
 
 INSERT INTO `ciudad` (`Ciudad_id`, `Ciudad_nomb`, `Ciudad_depart`) VALUES
-(50, 'Cali', 1),
-(51, 'Buenaventura', 1),
-(54, 'Palmira', 1),
-(55, 'Tulua', 1),
-(56, 'Cartago', 1),
-(57, 'Jamundi', 1),
-(58, 'Buga', 1),
-(59, 'Yumbo', 1),
-(60, 'Candelaria', 1),
-(61, 'Florida', 1);
+(1, 'CALI', 76),
+(20, 'ALCALA', 76),
+(36, 'ANDALUCIA', 76),
+(41, 'ANSERMANUEVO', 76),
+(54, 'ARGELIA', 76),
+(100, 'BOLIVAR', 76),
+(109, 'BUENAVENTURA', 76),
+(111, 'GUADALAJARA DE BUGA', 76),
+(113, 'BUGALAGRANDE', 76),
+(122, 'CAICEDONIA', 76),
+(126, 'CALIMA', 76),
+(130, 'CANDELARIA', 76),
+(147, 'CARTAGO', 76),
+(233, 'DAGUA', 76),
+(243, 'EL AGUILA', 76),
+(246, 'EL CAIRO', 76),
+(248, 'EL CERRITO', 76),
+(250, 'EL DOVIO', 76),
+(275, 'FLORIDA', 76),
+(306, 'GINEBRA', 76),
+(318, 'GUACARI', 76),
+(364, 'JAMUNDI', 76),
+(377, 'LA CUMBRE', 76),
+(400, 'LA UNION', 76),
+(403, 'LA VICTORIA', 76),
+(497, 'OBANDO', 76),
+(520, 'PALMIRA', 76),
+(563, 'PRADERA', 76),
+(606, 'RESTREPO', 76),
+(616, 'RIOFRIO', 76),
+(622, 'ROLDANILLO', 76),
+(670, 'SAN PEDRO', 76),
+(736, 'SEVILLA', 76),
+(823, 'TORO', 76),
+(828, 'TRUJILLO', 76),
+(834, 'TULUA', 76),
+(845, 'ULLOA', 76),
+(863, 'VERSALLES', 76),
+(869, 'VIJES', 76),
+(890, 'YOTOCO', 76),
+(892, 'YUMBO', 76),
+(895, 'ZARZAL', 76);
 
 -- --------------------------------------------------------
 
@@ -225,16 +258,6 @@ CREATE TABLE `contrato` (
   `Contra_stado` enum('Activo','Inactivo','Gestion','Terminado','Finalizado') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Volcado de datos para la tabla `contrato`
---
-
-INSERT INTO `contrato` (`Id_contrat`, `Contra_id_no`, `Contra_id_client`, `Contra_id_contr`, `Contra_descrip`, `Contra_time`, `Contra_time_contrat`, `Contra_time_ini`, `Contra_time_fin`, `Contra_Form_pago`, `Contra_id_vended`, `Contra_servi_tecni`, `Contra_servi_tec_pri`, `Contra_costo`, `Contra_cost_abona`, `Contra_Form_cuota`, `Contra_ciud`, `Contra_stado`) VALUES
-(108081, '161025', '10000', 213123, 'dfsdfsdfd', 3, '2017-01-23 20:24:03', '2016-10-04 10:00:00', '2017-01-30 10:00:00', 'Mensual', 114456, 'SI', 'Medio', 55000, NULL, 3, 0, 'Activo'),
-(108082, '161130', '890509-1', 213123, 'prueba de envio', 2, '2016-12-16 15:05:19', '2016-11-29 05:00:00', '2017-03-29 05:00:00', 'Mensual', 114456, 'SI', 'Medio', 40000, NULL, 3, 50, 'Activo'),
-(108083, '161216', '10000', 1004, 'dsfdsfsdfsdf', 12, '2016-12-16 14:45:53', '2016-12-01 05:00:00', '2017-12-01 05:00:00', 'Mensual', 114456, 'SI', 'Medio', 22000, NULL, 12, 50, 'Gestion'),
-(108084, '170124', '10000', 213123, 'contrato de mntenimiento', 12, '2017-01-24 15:46:42', '2017-01-24 05:00:00', '2018-01-24 05:00:00', 'Mensual', 114456, NULL, NULL, 2344, NULL, 12, 50, 'Inactivo');
-
 -- --------------------------------------------------------
 
 --
@@ -272,39 +295,10 @@ CREATE TABLE `departament_pais` (
 --
 
 INSERT INTO `departament_pais` (`id_depart`, `Nomb_depart`) VALUES
-(1, 'Valle del Cauca'),
-(2, 'Bogota'),
-(3, 'Amazonas'),
-(4, 'Antioquia'),
-(5, 'Arauca'),
-(6, 'Atlantico'),
-(7, 'Bolivar'),
-(8, 'Boyaca'),
-(9, 'Caldas'),
-(10, 'Caqueta'),
-(11, 'Casanare'),
-(12, 'Cauca'),
-(13, 'Cesar'),
-(14, 'Choco'),
-(15, 'Cordoba'),
-(16, 'Cundinamarca'),
-(17, 'Guainia'),
-(18, 'Guaviare'),
-(19, 'Huila'),
-(20, 'La Guajira'),
-(21, 'Magdalena'),
-(22, 'Meta'),
-(23, 'Nariño'),
-(24, 'Norte de Santander'),
-(25, 'Putumayo'),
-(26, 'Quindio'),
-(27, 'Risaralda'),
-(28, 'San Andres y Providencia'),
-(29, 'Santander'),
-(30, 'Sucre'),
-(31, 'Tolima'),
-(32, 'Vaupes'),
-(33, 'Vichada');
+(5, 'Antioquia'),
+(25, 'Tolima'),
+(63, 'Armenia'),
+(76, 'Valle del cauca');
 
 -- --------------------------------------------------------
 
@@ -454,13 +448,6 @@ CREATE TABLE `factura_stra` (
   `Fact_cancelado` enum('SI','NO') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Volcado de datos para la tabla `factura_stra`
---
-
-INSERT INTO `factura_stra` (`Fact_id`, `Fact_id_client`, `Fact_id_contrat`, `Fact_fecha`, `fact_fecha_final`, `Fact_total`, `Fact_cancelado`) VALUES
-(6, '10000', 108081, '2016-11-28 16:54:19', '2016-11-30 05:00:00', 3056, 'NO');
-
 -- --------------------------------------------------------
 
 --
@@ -508,9 +495,9 @@ CREATE TABLE `gestion_stra` (
 --
 
 INSERT INTO `gestion_stra` (`Gestion_id_auto`, `Gestion_id_tip`, `Gestion_estado`, `Gestion_id_empresa`, `Gestion_id_emplead`, `Gestion_id_coment`, `Gestion_fecha`, `Gestion_fecha_pend`, `Gestion_fecha_autor`, `Gestion_fecha_inicio`, `Gestion_fecha_termi`) VALUES
-(3, 108081, 'Terminado', '10000', 1234556, 9, '2017-01-23 15:27:11', '2016-12-16 08:51:10', '0000-00-00 00:00:00', '2017-01-23 08:01:21', '0000-00-00 00:00:00'),
-(4, 108082, 'Autorizado', '890509-1', 1234556, 12, '2016-12-16 15:00:10', '2016-11-30 13:18:40', '0000-00-00 00:00:00', '2016-11-30 14:02:12', '0000-00-00 00:00:00'),
-(5, 108083, 'Autorizado', '10000', 1234556, 14, '2017-01-23 13:56:42', '2017-01-20 14:11:51', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3, 108081, 'Terminado', '10000', 1234556, 9, '2017-02-06 14:13:22', '2016-12-16 08:51:10', '0000-00-00 00:00:00', '2017-01-23 08:01:21', '0000-00-00 00:00:00'),
+(4, 108082, 'Terminado', '890509-1', 1234556, 12, '2017-02-06 14:11:53', '2016-11-30 13:18:40', '0000-00-00 00:00:00', '2016-11-30 14:02:12', '0000-00-00 00:00:00'),
+(5, 108083, 'Gestion', '10000', 1234556, 14, '2017-02-06 14:13:28', '2017-01-20 14:11:51', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -528,19 +515,6 @@ CREATE TABLE `pagos_str` (
   `pago_costo` int(10) NOT NULL,
   `pago_confir` enum('SI','NO') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `pagos_str`
---
-
-INSERT INTO `pagos_str` (`pagos_id`, `pago_fecha_inic`, `pago_fecha_fin`, `pago_fecha_pago`, `pago_id_contrat`, `pago_id_empre`, `pago_costo`, `pago_confir`) VALUES
-(79, '2016-11-25 00:00:00', '2016-11-30 05:00:00', NULL, 108081, '10000', 3056, 'NO'),
-(80, '2016-12-01 00:00:00', '2016-12-30 05:00:00', NULL, 108081, '10000', 18333, 'NO'),
-(81, '2017-01-01 00:00:00', '2017-01-30 05:00:00', NULL, 108081, '10000', 18333, 'NO'),
-(82, '2016-12-16 00:00:00', '2016-12-30 05:00:00', NULL, 108082, '890509-1', 6222, 'NO'),
-(83, '2017-01-01 00:00:00', '2017-01-30 05:00:00', NULL, 108082, '890509-1', 13333, 'NO'),
-(84, '2017-01-23 00:00:00', '2017-01-30 05:00:00', NULL, 108081, '10000', 4278, 'NO'),
-(85, '2017-03-01 00:00:00', '2017-03-30 05:00:00', NULL, 108081, '10000', 18333, 'NO');
 
 -- --------------------------------------------------------
 
@@ -564,19 +538,6 @@ CREATE TABLE `registro_ticket` (
   `Ticket_estado` enum('Nuevo','Canalizado','Finalizado') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `registro_ticket`
---
-
-INSERT INTO `registro_ticket` (`Ticket_id`, `id_client`, `Nit_empresa`, `Ticket_tel`, `Ticket_cel`, `Ticket_Descrip`, `Ticket_event`, `Ticket_ciudad`, `Ticket_id_recibe`, `Ticket_date`, `Ticket_area`, `Ticket_ced_asign`, `Ticket_estado`) VALUES
-(1, NULL, '10000', '3705104', 3105123, 'Esto es una prueba', 1043, 50, 114456, '2017-01-19 16:49:00', 1008, 22344, 'Canalizado'),
-(2, NULL, '90909', '3705104', 31179552, 'El usuario presenta caida la red, por favor ayuda', 1043, 50, 114456, '2017-01-19 15:20:14', 1008, 22344, 'Canalizado'),
-(3, NULL, '90909', '31212', 545345, 'Se presento una caida de la red', 1043, 50, 1234556, '2017-01-19 16:44:31', 1008, 1234556, 'Finalizado'),
-(4, NULL, '10000', '34234', 5345345, 'vdsfsdfsdfsdfsdf', 1043, 50, 114456, '2016-12-16 21:07:58', 1000, 114456, 'Nuevo'),
-(5, NULL, '10000', '311758645', 3432222, 'registra caida de red en local', 1004, 50, 114456, '2017-01-19 16:49:08', 1008, 22344, 'Canalizado'),
-(6, NULL, '10000', '35444q', 53212, 'esto es una prueba', 1004, 50, 22344, '2017-01-19 19:32:04', NULL, NULL, 'Nuevo'),
-(7, NULL, '10000', '35444q', 53212, 'esto es una prueba', 1004, 50, 22344, '2017-01-19 20:15:54', 1008, 1234556, 'Canalizado');
-
 -- --------------------------------------------------------
 
 --
@@ -593,24 +554,6 @@ CREATE TABLE `respuesta_ticket` (
   `Respon_departa_resp` int(11) DEFAULT NULL,
   `Respon_id_emplo_asig` int(10) DEFAULT NULL COMMENT 'id de cliente asignado'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `respuesta_ticket`
---
-
-INSERT INTO `respuesta_ticket` (`Respon_id`, `Respon_text`, `Respon_id_ticket`, `Respon_date`, `Respon_recibe_id`, `Respon_estad`, `Respon_departa_resp`, `Respon_id_emplo_asig`) VALUES
-(65, 'gggggggggggg', 7, '2017-01-19 18:30:44', 1234556, 'Canalizado', 1008, 1234556),
-(74, 'se remite este caso', 5, '2017-01-19 19:30:17', 22344, 'Canalizado', 1008, 1234556),
-(75, 'otra prueba', 7, '2017-01-19 19:42:48', 1234556, 'Canalizado', 1008, 22344),
-(76, 'mas pruebas', 7, '2017-01-19 19:45:55', 1234556, 'Canalizado', 1008, 22344),
-(77, 'dirigido a alex', 7, '2017-01-19 19:49:43', 1234556, 'Canalizado', 1008, 22344),
-(78, 'se remite a alex', 7, '2017-01-19 19:56:04', 1234556, 'Canalizado', 1008, 22344),
-(79, 'ddddddddddddddd', 7, '2017-01-19 20:00:29', 1234556, 'Canalizado', 1008, 22344),
-(80, 'hhhhhhhhhhhh', 7, '2017-01-19 20:00:54', 1234556, 'Canalizado', 1008, 1234556),
-(81, 'cccccccccccccccccccccc', 7, '2017-01-19 20:01:43', 1234556, 'Canalizado', 1008, 22344),
-(82, 'cccccccccccccccccccccc', 7, '2017-01-19 20:03:03', 1234556, 'Canalizado', 1008, 22344),
-(83, 'canalizado', 7, '2017-01-19 20:15:54', 22344, 'Canalizado', 1008, 1234556),
-(84, 'canalizado', 7, '2017-01-19 20:16:03', 22344, 'Canalizado', 1008, 1234556);
 
 -- --------------------------------------------------------
 
@@ -638,6 +581,21 @@ INSERT INTO `servicios_prestado` (`Servi_id`, `Servi_id_tip`, `Servi_nomb`, `Ser
 (213123, 1020, 'Mantenimiento', '2344', 'mes'),
 (223322, 1020, 'Cableado estructurado', '150000', 'dia'),
 (324234, 1020, 'Cableado', '50000', 'mes');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitud_instalacion`
+--
+
+CREATE TABLE `solicitud_instalacion` (
+  `solic_id` int(11) NOT NULL,
+  `solic_nit_empre` varchar(15) NOT NULL,
+  `solic_fecha_solici` datetime NOT NULL,
+  `solic_stado` enum('solicitud','contestado','no contestado') NOT NULL,
+  `solic_id_emplo` int(10) NOT NULL,
+  `solic_id_tecnico` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -715,7 +673,8 @@ INSERT INTO `str_user_coun` (`str_id_user`, `str_pass`, `str_tipe`) VALUES
 (1155, 'b64e9a82c7b638b89ca398306d0854f887cebac9', 'Empleado'),
 (22344, 'b64e9a82c7b638b89ca398306d0854f887cebac9', 'Empleado'),
 (22344, '7c4a8d09ca3762af61e59520943dc26494f8941b', 'Empleado'),
-(1234556, '7c4a8d09ca3762af61e59520943dc26494f8941b', 'Empleado');
+(1234556, '7c4a8d09ca3762af61e59520943dc26494f8941b', 'Empleado'),
+(1144125068, '7c4a8d09ca3762af61e59520943dc26494f8941b', 'Cliente');
 
 -- --------------------------------------------------------
 
@@ -804,6 +763,28 @@ INSERT INTO `tipo_servicio` (`Tipo_id`, `Tipo_nomb`) VALUES
 (3123123, 'Internet'),
 (4324234, 'hfghfgh'),
 (56456454, 'internet');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `viabilidad_ubicacion`
+--
+
+CREATE TABLE `viabilidad_ubicacion` (
+  `viabili_id` int(11) NOT NULL,
+  `viabili_busqueda` varchar(50) NOT NULL,
+  `viabili_direcc` varchar(50) NOT NULL,
+  `viabili_latitud` varchar(20) NOT NULL,
+  `viabili_longitud` varchar(20) NOT NULL,
+  `viabili_config` enum('IPV4','IPV6') NOT NULL,
+  `viabili_acceso` enum('kilobyte','megabyte') NOT NULL,
+  `viabili_velocid` enum('1mg','2mg','4mg','5mg','10mg','20mg','128kb','256kb','512kb') NOT NULL,
+  `viabili_tipo_enlace` enum('Radio laser','Fibra','Cobre') NOT NULL,
+  `viabili_slas` enum('29','30') NOT NULL,
+  `viabili_stado1` enum('Solicitud','Aprobado','No aprobado') NOT NULL,
+  `viabili_stado2` enum('Cotizado','No cotizado') DEFAULT NULL,
+  `viabili_id_solici` int(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Índices para tablas volcadas
@@ -957,6 +938,12 @@ ALTER TABLE `servicios_prestado`
   ADD KEY `Servi_id_tip` (`Servi_id_tip`);
 
 --
+-- Indices de la tabla `solicitud_instalacion`
+--
+ALTER TABLE `solicitud_instalacion`
+  ADD PRIMARY KEY (`solic_id`);
+
+--
 -- Indices de la tabla `solici_material_servi_tect`
 --
 ALTER TABLE `solici_material_servi_tect`
@@ -984,6 +971,13 @@ ALTER TABLE `tipo_servicio`
   ADD PRIMARY KEY (`Tipo_id`);
 
 --
+-- Indices de la tabla `viabilidad_ubicacion`
+--
+ALTER TABLE `viabilidad_ubicacion`
+  ADD PRIMARY KEY (`viabili_id`),
+  ADD KEY `viabili_id_solici` (`viabili_id_solici`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -991,12 +985,12 @@ ALTER TABLE `tipo_servicio`
 -- AUTO_INCREMENT de la tabla `cargo_stra`
 --
 ALTER TABLE `cargo_stra`
-  MODIFY `Carg_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `Carg_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 --
 -- AUTO_INCREMENT de la tabla `ciudad`
 --
 ALTER TABLE `ciudad`
-  MODIFY `Ciudad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `Ciudad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=896;
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
@@ -1006,7 +1000,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `contrato`
 --
 ALTER TABLE `contrato`
-  MODIFY `Id_contrat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108085;
+  MODIFY `Id_contrat` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `departament`
 --
@@ -1016,7 +1010,7 @@ ALTER TABLE `departament`
 -- AUTO_INCREMENT de la tabla `departament_pais`
 --
 ALTER TABLE `departament_pais`
-  MODIFY `id_depart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_depart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT de la tabla `detalles_fact`
 --
@@ -1031,7 +1025,7 @@ ALTER TABLE `detalle_stra`
 -- AUTO_INCREMENT de la tabla `factura_stra`
 --
 ALTER TABLE `factura_stra`
-  MODIFY `Fact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Fact_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `foto_servi_tecn`
 --
@@ -1046,22 +1040,27 @@ ALTER TABLE `gestion_stra`
 -- AUTO_INCREMENT de la tabla `pagos_str`
 --
 ALTER TABLE `pagos_str`
-  MODIFY `pagos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `pagos_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `registro_ticket`
 --
 ALTER TABLE `registro_ticket`
-  MODIFY `Ticket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Ticket_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `respuesta_ticket`
 --
 ALTER TABLE `respuesta_ticket`
-  MODIFY `Respon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `Respon_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `servicios_prestado`
 --
 ALTER TABLE `servicios_prestado`
   MODIFY `Servi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324235;
+--
+-- AUTO_INCREMENT de la tabla `solicitud_instalacion`
+--
+ALTER TABLE `solicitud_instalacion`
+  MODIFY `solic_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `solici_material_servi_tect`
 --
@@ -1082,6 +1081,11 @@ ALTER TABLE `tipo_evento`
 --
 ALTER TABLE `tipo_servicio`
   MODIFY `Tipo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56456455;
+--
+-- AUTO_INCREMENT de la tabla `viabilidad_ubicacion`
+--
+ALTER TABLE `viabilidad_ubicacion`
+  MODIFY `viabili_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --

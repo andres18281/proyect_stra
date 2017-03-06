@@ -19,8 +19,8 @@
       		  AND str_pass = "'.$pass.'"';
       $respon = parent::consultas($sql);
       if(isset($respon)){
-      	$this->id = $respon['str_id_user'];
-      	$this->tipo = $respon['str_tipe'];
+      	$this->id = $respon[0]['str_id_user'];
+      	$this->tipo = $respon[0]['str_tipe'];
       }
       return $respon;
     }
@@ -43,6 +43,14 @@
       $sql = 'SELECT  Client_id as id,CONVERT(CONCAT(Client_nom," ",Client_apell) USING utf8) as nomb,Client_tipo as tipo,Client_email as mail
               FROM clientes_stra 
               WHERE Client_id = '.$id_client;
+      $respon = parent::consultas($sql);
+      return $respon;
+    }
+
+    public function Get_empresa_by_user($id){
+      $sql = 'SELECT Empres_nit as nit
+              FROM empresa_stra 
+              WHERE Empres_id_client = '.$id;
       $respon = parent::consultas($sql);
       return $respon;
     }

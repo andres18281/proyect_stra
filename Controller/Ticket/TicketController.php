@@ -4,7 +4,7 @@ include_once('../../Model/PQR.php');
  class TicketController{
    private $pqr = null;
    function __construct(){
-   	if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
    	 $this->pqr = new PQR();
    	 $request = json_decode($_POST['accion'],true);
    	 if(isset($request['form']['create_ticket_client'])){
@@ -17,6 +17,13 @@ include_once('../../Model/PQR.php');
    	 	$respon = $this->Get_sub_item_($id);
    	 	echo json_encode($respon);
    	 }
+
+       if(isset($request['get_ticket_by_empre'])){
+         if(isset($_SESSION['nit'])){
+          $respon = $this->pqr->Get_PQR_by_titular($_SESSION['nit']);
+          echo json_encode($respon);
+         }
+       }
     }
    }
 
@@ -24,9 +31,10 @@ include_once('../../Model/PQR.php');
    private function Save_ticket_cliente($form = array()){
    	include_once('../../Model/Empleado.php');
    	$emple = new Empleado();
-   	$id_emplo = $emple->Get_one_employed_by_area(1008); // llama a un empleado de servicio tecnico
-   	$form['id_canalizar'] = $id_emplo[0]['id'];
+   	$id_emplo = $emple->Get_one_employed_by_area(110); // llama a un empleado de servicio tecnico
+   	$form['id_canalizar'] = $id_emplo[0]['id']; 
    	$form['id_client'] = $_SESSION['id_user'];
+      $form['nit'] = $_SESSION['nit'];
    	$respon = $this->pqr->Set_pqr_client($form);
    	return $respon;
    }

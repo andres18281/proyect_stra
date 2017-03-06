@@ -43,14 +43,10 @@
  	$confi = new Configuracion();
  	$respon = $confi->Get_all_event();
  	if(isset($respon)){
- 	  $array = array();
- 	  if(isset($respon[0]) and  is_array($respon[0])){    
- 	   foreach($respon as $val){
+ 	  $array = array();    
+ 	  foreach($respon as $val){
  	   	 array_push($array, array("id"=>$val['id'],"ser"=>$val['nomb'],"nomb"=>$val['tipo_nom']));
- 	   }	
- 	  }else{
- 	  	$array[] = Array("id"=>$respon['id'],"ser"=>$respon['nomb'],"nomb"=>$respon['tipo_nom']);
- 	  }
+ 	  }	
  	  echo json_encode($array);
  	}
  }
@@ -62,12 +58,8 @@
  	$respon = $confi->Get_event_by_service($id);
  	if(isset($respon)){
  	  $array = array();
- 	  if(isset($respon[0]) and is_array($respon[0])){
- 	  	foreach($respon as $val){
- 	  	  array_push($array,array("id"=>$val['Tip_eve_id'],"name"=>utf8_encode($val['Tip_eve_nomb'])));
- 	  	}
- 	  }else{
- 	  	$array[] = array("id"=>$respon['Tip_eve_id'],"name"=>utf8_encode($respon['Tip_eve_nomb']));
+ 	  foreach($respon as $val){
+ 	    array_push($array,array("id"=>$val['Tip_eve_id'],"name"=>utf8_encode($val['Tip_eve_nomb'])));
  	  }
  	  echo json_encode($array);	
  	}	
@@ -89,12 +81,8 @@
  	$data = $confi->Get_departamento();
  	if(isset($data)){
  	  $arra = array();
- 	  if(isset($data[0]) and is_array($data[0])){ 
- 	  	foreach($data as $val){
- 	  	 array_push($arra,array("id"=>$val['Id_depart'],"nomb"=>utf8_encode($val['Depart_nomb'])));
- 	  	}
- 	  }else{
- 	  	$arra[] = array("id"=>$data['Id_depart'],"nomb"=>utf8_encode($data['Depart_nomb']));
+ 	  foreach($data as $val){
+ 	   array_push($arra,array("id"=>$val['Id_depart'],"nomb"=>utf8_encode($val['Depart_nomb'])));
  	  }
  	  echo json_encode($arra);
  	}
@@ -106,12 +94,8 @@
  	$respon = $ubica->get_departament_pais();
  	if(isset($respon)){
  	  $array_depart = array();
- 	  if(isset($respon[0]) and is_array($respon[0])){ 
- 	  	foreach($respon as $val){
+ 	  foreach($respon as $val){
  	  	 array_push($array_depart,array("id"=>$val['id_depart'],"depart"=>utf8_encode($val['Nomb_depart'])));
- 	  	}
- 	  }else{
- 	  	$array_depart[] = array("id"=>$respon['id_depart'],"depart"=>utf8_encode($respon['Nomb_depart']));
  	  }
  	  //var_dump($array_depart);
  	  echo json_encode($array_depart);
@@ -125,12 +109,8 @@ if(isset($_POST['get_ciudad_'])){
  	$respon = $ubica->get_ciudad_($id);
  	if(isset($respon)){
  	  $arra = array();
- 	  if(isset($respon[0]) and is_array($respon[0])){
- 	  	foreach($respon as $val){ 
+ 	  foreach($respon as $val){ 
  	  	 array_push($arra,array("id"=>$val['Ciudad_id'],"ciudad"=>utf8_encode($val['Ciudad_nomb'])));
- 	  	}
- 	  }else{
- 	  	$arra[] = array("id"=>$respon['Ciudad_id'],"ciudad"=>utf8_encode($respon['Ciudad_nomb']));
  	  }
  	  echo json_encode($arra);
  	}
@@ -154,13 +134,9 @@ if(isset($_POST['get_ciudad_'])){
  	$confi = new Configuracion_empresa();
  	$data = $confi->Get_cargos_by_departament($id);
  	if(isset($data)){
- 	  $array = array();
- 	  if(isset($data[0]) and is_array($data[0])){ 
- 	  	foreach($data as $val){ 
- 	  	  array_push($array, array("id"=>$val['Carg_id'],"nomb"=>$val['Carg_nomb']));
- 	  	}
- 	  }else{
- 	  	$array[] = array("id"=>$data['Carg_id'],"nomb"=>$data['Carg_nomb']); 
+ 	  $array = array(); 
+ 	  foreach($data as $val){ 
+ 	    array_push($array, array("id"=>$val['Carg_id'],"nomb"=>$val['Carg_nomb']));
  	  }
  	  echo json_encode($array);	
  	}
@@ -173,13 +149,9 @@ if(isset($_POST['get_ciudad_'])){
   $respon = $emplo->Get_all_employed_by_area($area);
   if(isset($respon)){
     $array = array();
-    if(isset($respon[0]) and is_array($respon[0])){
-      foreach($respon as $val){  
-        array_push($array,array("id"=>$val['emple_id'],"nombre"=>utf8_encode($val['emple'])));
-      }
-    }else{
-      $array[] = array("id"=>$respon['emple_id'],"nombre"=>utf8_encode($respon['emple']));
-    } 
+    foreach($respon as $val){  
+      array_push($array,array("id"=>$val['emple_id'],"nombre"=>utf8_encode($val['emple'])));
+    }
     echo json_encode($array);
   }
  }
@@ -237,12 +209,8 @@ if(isset($_POST['get_ciudad_'])){
   $respon = $emp->Get_all_employed();
   if(isset($respon)){
     $array = array();
-    if(isset($respon[0]) and is_array($respon[0])){
-      foreach($respon as $val){ 
+    foreach($respon as $val){ 
         array_push($array, array("id"=>$val['emple_id'],"nomb"=>utf8_encode($val['emple']),"carg"=>utf8_encode($val['Carg_nomb']),"email"=>$val['emple_email'],"img"=>$val['emple_foto']));
-      }
-    }else{
-      $array[] = array("id"=>$respon['emple_id'],"nomb"=>$respon['emple'],"carg"=>$respon['Carg_nomb'],"email"=>$respon['emple_email'],"img"=>$respon['emple_foto']);
     }
     echo json_encode($array);
   }

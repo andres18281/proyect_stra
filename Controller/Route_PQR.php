@@ -39,30 +39,24 @@
  }
 
 
- if(isset($_POST['id_ticket'])){
+  if(isset($_POST['id_ticket'])){
    $id = $_POST['id_ticket'];
    $pqr = new PQR();
    $array = array();
    $array2 = array();
-   $data1 = $pqr->Get_PQR($id);
+   $data_ = $pqr->Get_PQR($id);
    $data2 = $pqr->Get_Respond($id);
-   if(isset($data1)){
-      $array = array("tel"=>$data1['Ticket_tel'],"cel"=>$data1['Ticket_cel'],"descri"=>utf8_encode($data1['Ticket_Descrip']),"nomb"=>$data1['nomb_event'],"id_recibe"=>$data1['empleado'],"estado"=>$data1['Ticket_estado'],"fecha"=>$data1['Ticket_date'],"area"=>$data1['departament']);
-      $respon['ticket_primary'] = $array;
+   if(isset($data_)){
+     foreach($data_ as $data1){
+       $respon['ticket_primary'] = $data1;
+     }
    }
    if(isset($data2)){
-    if(isset($data2[0]) and is_array($data2[0])){
       foreach($data2 as $val){
-        array_push($array2,array("descri"=>utf8_encode($val['respuest']),"fecha"=>$val['fecha'],"nomb"=>$val['empleado'],"estado"=>$val['estado'],"img"=>$val['img']));
+        $array2[] = $val; 
       }
-    }else{    
-      $array2[] = array("descri"=>utf8_encode($data2['respuest']),"fecha"=>$data2['fecha'],"nomb"=>$data2['empleado'],"estado"=>$data2['estado'],"img"=>$data2['img']);
-    }
-    $respon['ticket_respon'] = $array2; 
    }
+   $respon['ticket_respon'] = $array2; 
    echo json_encode($respon);
- }
-
- 
-
+  }
 ?>

@@ -77,13 +77,9 @@ class ContratoController{
 	  $respon = $this->contra->Get_contratos_by_client($id);
 	  $array = array();
 	  if(isset($respon)){
-  		if(isset($respon[0]) and is_array($respon[0])){	
-  	      foreach($respon as $val){
-  	  		array_push($array,array("id"=>$val['Id_contrat'],"id_servi"=>$val['Contra_id_contr'],"tiemp"=>$val['Contra_time'],"time_inicio"=>$val['Contra_time_ini'],"time_fin"=>$val['Contra_time_fin'],"estado"=>$val['Contra_stado']));
-  	  	}
-  	   }else{
-  		$array[] = array("id"=>$respon['Id_contrat'],"id_servi"=>$respon['Contra_id_contr'],"tiemp"=>$respon['Contra_time'],"time_inicio"=>$respon['Contra_time_ini'],"time_fin"=>$respon['Contra_time_fin'],"estado"=>$respon['Contra_stado']);
-  	   }
+  	    foreach($respon as $val){
+  	  		array_push($array,array("id"=>$val['Id_contrat'],"id_servi"=>$val['Contra_id_contr'],"tiemp"=>$val['Contra_time'],"time_inicio"=>$val['Contra_time_ini'],"time_fin"=>$val['Contra_time_fin'],"estado"=>$val['Contra_stado']));	
+  	    }
   	   return $array;  	
 	  }else{
 	  	return false;
@@ -94,13 +90,10 @@ class ContratoController{
 	  $respon = $contra->Get_all_contrato();
 	  if(isset($respon)){
 	    $array = array();
-	    if(isset($respon[0]) and is_array($respon[0])){
-	  	  foreach($respon as $val){	
-	  	    array_push($array,array("id"=>$val['Id_contrat'],"client"=>$val['Contra_id_client'],"servi"=>$val['Contra_id_contr'],"time"=>$val['Contra_time'],"timeini"=>$val['Contra_time_ini'],"timefin"=>$val['Contra_time_fin'],"estado"=>$val['Contra_stado']));
-	  	  }
-	    }else{
-	  	  $array[] = array("id"=>$respon['Id_contrat'],"client"=>$respon['Contra_id_client'],"servi"=>$respon['Contra_id_contr'],"time"=>$respon['Contra_time'],"timeini"=>$respon['Contra_time_ini'],"timefin"=>$respon['Contra_time_fin'],"estado"=>$respon['Contra_stado']);
-	    }
+	    
+	  	foreach($respon as $val){	
+	  	  array_push($array,array("id"=>$val['Id_contrat'],"client"=>$val['Contra_id_client'],"servi"=>$val['Contra_id_contr'],"time"=>$val['Contra_time'],"timeini"=>$val['Contra_time_ini'],"timefin"=>$val['Contra_time_fin'],"estado"=>$val['Contra_stado']));
+	  	}
 	     return $array;
 	  }else{
 	  	return false;
@@ -111,13 +104,9 @@ class ContratoController{
 	  $respon =  $this->contra->Get_all_contrato_by_empre($id);
   	  if(isset($respon)){
    		$array = array();
-   		if(isset($respon[0]) and is_array($respon[0])){ 
-          foreach($respon as $val){ 
+        foreach($respon as $val){ 
       		array_push($array, array("id"=>$val['Id_contrat'],"servicio"=>utf8_encode($val['Contra_descrip']),"pagos"=>$val['Contra_cost_abona'],"inicio"=>$val['Contra_time_ini'],"fin"=>$val['Contra_time_fin'],"form_pago"=>$val['Contra_Form_pago'],"estado"=>$val['Contra_stado'],"total"=>$val['Contra_costo']));
-    	  }
-    	}else{
-          $array[] = array("id"=>$respon['Id_contrat'],"servicio"=>utf8_encode($respon['Contra_descrip']),"pagos"=>$respon['Contra_cost_abona'],"inicio"=>$respon['Contra_time_ini'],"fin"=>$respon['Contra_time_fin'],"form_pago"=>$respon['Contra_Form_pago'],"estado"=>$respon['Contra_stado'],"total"=>$respon['Contra_costo']);
-     	}
+    	}
       	return $array;
   	  }else{
   	 	return false;
@@ -128,15 +117,10 @@ class ContratoController{
   	   $respon = $this->contra->Get_all_contrato_without_active();
   		if(isset($respon)){
     	  $array = array();
-    	  if(isset($respon[0]) and is_array($respon[0])){
       		foreach($respon as $val){
         	  $fecha = date_create($val['Contra_time_contrat']);
         	  array_push($array, array("id"=>$val['Id_contrat'],"no"=>$val['Contra_id_no'],"dia"=>date_format($fecha,"d"),"dia_letr"=>date_format($fecha,"D"),"mes_let"=>date_format($fecha,"F"),"ano"=>date_format($fecha,"Y"),"hora"=>date_format($fecha,"h:i:sa"),"servicio"=>utf8_encode($val['Servi_nomb'])));
       		}
-    	  }else{ 
-      		  $fecha = date_create($respon['Contra_time_contrat']);
-      		  $array[] = array("id"=>$respon['Id_contrat'],"no"=>$respon['Contra_id_no'],"dia"=>date_format($fecha,"d"),"dia_letr"=>date_format($fecha,"D"),"mes_let"=>date_format($fecha,"M"),"ano"=>date_format($fecha,"Y"),"hora"=>date_format($fecha,"h:i:sa"),"servicio"=>utf8_encode($respon['Servi_nomb']));
-    	  }
     	  return $array;	
   		}else{
   			return false;

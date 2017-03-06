@@ -94,13 +94,14 @@ $(function(){
         url:"Controller/Ticket/Ticket.php",
         data:{"msn_ticket":id},
         success:function(data){
+          var data_ = data[0];
           var t = '<li>\
                       <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="11 hours ago via Twitter" id=""></i></a></div>\
                       <div class="timeline-panel">\
                        <div class="timeline-heading">\
                        </div>\
                        <div class="timeline-body">\
-                        <p style="font-size:18px">'+data.Ticket_Descrip+'</p>\
+                        <p style="font-size:18px">'+data_.Ticket_Descrip+'</p>\
                        </div>\
                        <div class="timeline-footer">\
                         <a class="pull-right">Continuar Lendo</a>\

@@ -29,7 +29,6 @@
 
       function inserta($tablas,$params = array()){
         $inserta = 'INSERT INTO `'.$tablas.'` (`'.implode('`, `',array_keys($params)).'`) VALUES ("' . implode('", "', $params) . '")';
-        echo $inserta;
         $sentencia = $this->mbd->prepare($inserta);
         $dato = $sentencia->execute();
         $response = $sentencia->fetch(PDO::FETCH_ASSOC);
@@ -48,10 +47,11 @@
         $data = $this->mbd->prepare($sql);
         $data->execute();
         $num = $data->rowCount();
+        $result = null;
         if($num > 1){
           $result = $data->fetchAll(PDO::FETCH_ASSOC); 
-        }else{
-          $result = $data->fetch(PDO::FETCH_ASSOC);
+        }else if($num == 1){
+          $result[] = $data->fetch(PDO::FETCH_ASSOC);
         }
         return $result;
       }

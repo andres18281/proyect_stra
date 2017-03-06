@@ -602,8 +602,103 @@ if(isset($_SESSION['tipo_user_'])){
 	  	  	$(t).appendTo($("select[name='slt_ciudad']","form[name='form_ticket']"));
 	  	  });
 	  	});	
-	  });	
-	});	
+	  });
+
+
+	  	function Buscar_Empresa(){
+          var params = {"get_ticket_by_empre":""};
+      	  $.post("controller/Ticket/TicketController.php",{"accion":JSON.stringify(params)},function(data){
+        	var data = $.parseJSON(data);
+        	if(data !== null){
+              $.each(data,function(key,val){
+                var t = 
+                '<tr>\
+                <td>'+val.fecha+'</td>\
+                <td>'+val.estado+'</td>\
+                <td>'+val.nomb_event+'</td>\
+                <td>'+val.depart+'</td>\
+                <td><a href="#" id='+val.id+' class="btn btn-danger btn-xs btn_ver_ticket"><i class="glyphicon glyphicon-zoom-in"></i></a></td>\
+                </tr>';  
+                $(t).appendTo($("#tbody_historial"));
+              });
+         	}
+      	  });
+    	}
+    	Buscar_Empresa();
+
+  $(document).on('click',".btn_ver_ticket",function(){
+    $(".comment-list").html("");
+    var id = $(this).attr('id');
+    $.ajax({
+     datatype:"json",
+     type:"post",
+     url:"controller/Route_PQR.php",
+     data:{"id_ticket":id}
+    }).done(function(data){
+      var data = $.parseJSON(data);
+      if(data.ticket_primary){ 
+        var ticke =data.ticket_primary;
+        var t = '<article class="row">\
+             <div class="col-md-2 col-sm-2 hidden-xs">\
+              <figure class="thumbnail">\
+                <img class="img-responsive" src="View/img/employed/'+ticke.img+'"/>\
+                <figcaption class="text-center">'+ticke.id_recibe+'</figcaption>\
+              </figure>\
+            </div>\
+               <div class="col-md-10 col-sm-10">\
+                <div class="panel panel-default arrow left">\
+                  <div class="panel-body">\
+                    <header class="text-left">\
+                      <div class="comment-user"><i class="fa fa-user"></i><div class="alert alert-danger" role="alert"><strong>'+ticke.nomb+'</strong></div></div>\
+                      <time class="comment-date" datetime=""><i class="fa fa-clock-o"></i>'+ticke.fecha+'</time>\
+                    </header>\
+                    <div class="comment-post">\
+                      <p>\
+                         '+ticke.descri+'\
+                      </p>\
+                    </div>\
+                    <p>\
+                        Remitido al area de : <strong>'+ticke.area+'</strong>\
+                    </p>\
+                  </div>\
+                </div>\
+               </div>\
+              </article>';
+        $(t).appendTo($(".comment-list"));
+      }
+      var respon = data.ticket_respon; 
+      if(respon[0].nomb){
+       $.each(respon,function(key,val){
+         var t = '<article class="row">\
+                    <div class="col-md-2 col-sm-2 col-md-offset-1 col-sm-offset-0 hidden-xs">\
+                      <figure class="thumbnail">\
+                        <img class="img-responsive" src="View/img/employed/'+val.img+'"/>\
+                        <figcaption class="text-center">'+val.nomb+'</figcaption>\
+                      </figure>\
+                    </div>\
+                    <div class="col-md-9 col-sm-9">\
+                      <div class="panel panel-default arrow left">\
+                        <div class="panel-heading right">'+val.estado+'</div>\
+                        <div class="panel-body">\
+                          <header class="text-left">\
+                            <div class="comment-user"><i class="fa fa-user"></i></div>\
+                              <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i>'+val.fecha+'</time>\
+                          </header>\
+                          <div class="comment-post">\
+                            <p>\
+                            '+val.descri+'\
+                            </p>\
+                          </div>\
+                        </div>\
+                      </div>\
+                    </div>\
+                  </article>';
+         $(t).appendTo($(".comment-list"));
+       });
+      }
+    });
+  });	
+});	
 </script>
 
 
